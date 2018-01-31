@@ -1,0 +1,27 @@
+
+
+<h1>Créer un nouveau ragot</h1>
+
+<%= form_tag (gossips_path) do %>
+
+ 
+  <% if @gossip.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@gossip.errors.count, "error") %> prohibited
+        this article from being saved:
+      </h2>
+      <ul>
+        <% @gossip.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= label_tag 'title', 'Nom de l\'auteur :' %>
+  <%= text_field_tag 'anonymous_author' %>
+  <%= label_tag 'text', 'Ragot :' %>
+  <%= text_field_tag 'content' %>
+  <%= submit_tag 'Créer un nouveau ragot' %>
+<% end %>

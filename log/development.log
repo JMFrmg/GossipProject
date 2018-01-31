@@ -1,0 +1,3334 @@
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (4.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (3.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateGossips (20180131112052)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "gossips" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "anonymous_author" varchar, "content" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180131112052"]]
+  [1m[35m (4.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-01-31 11:22:11.152829"], ["updated_at", "2018-01-31 11:22:11.152829"]]
+  [1m[35m (3.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2018-01-31 12:28:48 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by GossipsController#index as HTML
+  Rendering gossips/index.html.erb within layouts/application
+  Rendered gossips/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 439ms (Views: 433.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-31 12:29:38 +0100
+  
+ArgumentError (Missing :controller key on routes definition, please check your routes.):
+  
+config/routes.rb:2:in `block in <top (required)>'
+config/routes.rb:1:in `<top (required)>'
+Started GET "/" for 127.0.0.1 at 2018-01-31 12:30:08 +0100
+Processing by GossipsController#index as HTML
+  Rendering gossips/index.html.erb within layouts/application
+  Rendered gossips/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 17ms (Views: 15.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-31 12:43:26 +0100
+Processing by GossipsController#index as HTML
+  Rendering gossips/index.html.erb within layouts/application
+  Rendered gossips/index.html.erb within layouts/application (1.2ms)
+Completed 500 Internal Server Error in 4ms
+
+
+  
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    15:       <a href="http://railstutorial.org/">Ruby on Rails Tutorial</a>.
+    16:     </p>
+    17:     <p>
+    18: <%= form_for(@user) do |f| %>
+    19:   <div class="field">
+    20:     <%= f.label :nom %><br />
+    21:     <%= f.text_field :nom %>
+  
+app/views/gossips/index.html.erb:18:in `_app_views_gossips_index_html_erb___230268624597463230_70216038068460'
+Started GET "/" for 127.0.0.1 at 2018-01-31 14:48:12 +0100
+Processing by GossipsController#index as HTML
+  Rendering gossips/index.html.erb within layouts/application
+  Rendered gossips/index.html.erb within layouts/application (1.2ms)
+Completed 500 Internal Server Error in 4ms
+
+
+  
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    15:       <a href="http://railstutorial.org/">Ruby on Rails Tutorial</a>.
+    16:     </p>
+    17:     <p>
+    18: <%= form_for(@user) do |f| %>
+    19:   <div class="field">
+    20:     <%= f.label :nom %><br />
+    21:     <%= f.text_field :nom %>
+  
+app/views/gossips/index.html.erb:18:in `_app_views_gossips_index_html_erb___230268624597463230_40289440'
+Started GET "/" for 127.0.0.1 at 2018-01-31 14:49:26 +0100
+Processing by GossipsController#index as HTML
+  Rendering gossips/index.html.erb within layouts/application
+  Rendered gossips/index.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 16ms (Views: 15.3ms)
+
+
+Started GET "/new" for 127.0.0.1 at 2018-01-31 14:50:03 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/new"):
+  
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.9.1) lib/puma/configuration.rb:224:in `call'
+puma (3.9.1) lib/puma/server.rb:602:in `handle_request'
+puma (3.9.1) lib/puma/server.rb:435:in `process_client'
+puma (3.9.1) lib/puma/server.rb:299:in `block in run'
+puma (3.9.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/gossips/new" for 127.0.0.1 at 2018-01-31 14:51:15 +0100
+Processing by GossipsController#new as HTML
+  Rendering gossips/new.html.erb within layouts/application
+  Rendered gossips/new.html.erb within layouts/application (151.0ms)
+Completed 500 Internal Server Error in 153ms
+
+
+  
+ActionView::Template::Error (undefined local variable or method `article_path' for #<#<Class:0x00000002d4f4c0>:0x00000002d38978>
+Did you mean?  @virtual_path):
+    1: <h1>Entrer un nouveau gossip</h1>
+    2: 
+    3: <%= form_tag (article_path) do %>
+    4:   <%= label_tag 'title', 'Title' %>
+    5:   <%= text_field_tag 'title' %>
+    6:   <%= label_tag 'text', 'Corpus' %>
+  
+app/views/gossips/new.html.erb:3:in `_app_views_gossips_new_html_erb___3549880012025158304_23760180'
+Started GET "/gossips/new" for 127.0.0.1 at 2018-01-31 14:53:41 +0100
+Processing by GossipsController#new as HTML
+  Rendering gossips/new.html.erb within layouts/application
+  Rendered gossips/new.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 26ms (Views: 24.8ms)
+
+
+Started POST "/gossips" for 127.0.0.1 at 2018-01-31 14:56:32 +0100
+Processing by GossipsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7eNHPENxKLUwiujxBRZRYlx6dgoZvxCNSj9rEt6vKtF82rr45nteBzyYpDcvcVe9pZ30Eb6bgwUdFIylgd5zlQ==", "title"=>"titre", "text"=>"article", "commit"=>"Créer nouvel article"}
+No template found for GossipsController#create, rendering head :no_content
+Completed 204 No Content in 11ms
+
+
+Started GET "/gossips/new" for 127.0.0.1 at 2018-01-31 15:03:30 +0100
+Processing by GossipsController#new as HTML
+  Rendering gossips/new.html.erb within layouts/application
+  Rendered gossips/new.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 15ms (Views: 13.8ms)
+
+
+Started POST "/gossips" for 127.0.0.1 at 2018-01-31 15:03:36 +0100
+Processing by GossipsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ZRLmizAjvLTbZ1YQiRe1bYRBchxHALn/wIoQN1ujQwb0KxtPlSnKBtd1GtajcLOyfabwB+AkKneXofeABNIaQg==", "title"=>"titre", "text"=>"article", "commit"=>"Créer un nouveau gossip"}
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 1.3ms)
+
+
+  
+NoMethodError (undefined method `save' for nil:NilClass):
+  
+app/controllers/gossips_controller.rb:13:in `create'
+Started POST "/gossips" for 127.0.0.1 at 2018-01-31 15:04:15 +0100
+Processing by GossipsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ZRLmizAjvLTbZ1YQiRe1bYRBchxHALn/wIoQN1ujQwb0KxtPlSnKBtd1GtajcLOyfabwB+AkKneXofeABNIaQg==", "title"=>"titre", "text"=>"article", "commit"=>"Créer un nouveau gossip"}
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "gossips" ("anonymous_author", "content", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["anonymous_author", "titre"], ["content", "article"], ["created_at", "2018-01-31 14:04:15.167298"], ["updated_at", "2018-01-31 14:04:15.167298"]]
+  [1m[35m (9.7ms)[0m  [1m[36mcommit transaction[0m
+No template found for GossipsController#create, rendering head :no_content
+Completed 204 No Content in 29ms (ActiveRecord: 10.6ms)
+
+
+Started POST "/gossips" for 127.0.0.1 at 2018-01-31 15:04:22 +0100
+Processing by GossipsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ZRLmizAjvLTbZ1YQiRe1bYRBchxHALn/wIoQN1ujQwb0KxtPlSnKBtd1GtajcLOyfabwB+AkKneXofeABNIaQg==", "title"=>"titre", "text"=>"article", "commit"=>"Créer un nouveau gossip"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "gossips" ("anonymous_author", "content", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["anonymous_author", "titre"], ["content", "article"], ["created_at", "2018-01-31 14:04:22.227243"], ["updated_at", "2018-01-31 14:04:22.227243"]]
+  [1m[35m (9.2ms)[0m  [1m[36mcommit transaction[0m
+No template found for GossipsController#create, rendering head :no_content
+Completed 204 No Content in 25ms (ActiveRecord: 9.6ms)
+
+
+Started POST "/gossips" for 127.0.0.1 at 2018-01-31 15:04:36 +0100
+Processing by GossipsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ZRLmizAjvLTbZ1YQiRe1bYRBchxHALn/wIoQN1ujQwb0KxtPlSnKBtd1GtajcLOyfabwB+AkKneXofeABNIaQg==", "title"=>"titre", "text"=>"article", "commit"=>"Créer un nouveau gossip"}
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "gossips" ("anonymous_author", "content", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["anonymous_author", "titre"], ["content", "article"], ["created_at", "2018-01-31 14:04:36.119920"], ["updated_at", "2018-01-31 14:04:36.119920"]]
+  [1m[35m (9.2ms)[0m  [1m[36mcommit transaction[0m
+No template found for GossipsController#create, rendering head :no_content
+Completed 204 No Content in 28ms (ActiveRecord: 10.2ms)
+
+
+Started GET "/gossip/new" for 127.0.0.1 at 2018-01-31 15:05:40 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/gossip/new"):
+  
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.9.1) lib/puma/configuration.rb:224:in `call'
+puma (3.9.1) lib/puma/server.rb:602:in `handle_request'
+puma (3.9.1) lib/puma/server.rb:435:in `process_client'
+puma (3.9.1) lib/puma/server.rb:299:in `block in run'
+puma (3.9.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/gossips/new" for 127.0.0.1 at 2018-01-31 15:05:54 +0100
+Processing by GossipsController#new as HTML
+  Rendering gossips/new.html.erb within layouts/application
+  Rendered gossips/new.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 14ms (Views: 12.8ms)
+
+
+Started POST "/gossips" for 127.0.0.1 at 2018-01-31 15:06:09 +0100
+Processing by GossipsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7hApb4T7zvodSUoeq9mByrcuhYewoBYBlvFF1l3JSfZ/KdSrIfG4SBFbBtiBvocVTskHnBeEhYnB2qJhArgQsg==", "title"=>"gossip1", "text"=>"MonGossip", "commit"=>"Créer un nouveau gossip"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "gossips" ("anonymous_author", "content", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["anonymous_author", "gossip1"], ["content", "MonGossip"], ["created_at", "2018-01-31 14:06:09.751768"], ["updated_at", "2018-01-31 14:06:09.751768"]]
+  [1m[35m (3.4ms)[0m  [1m[36mcommit transaction[0m
+No template found for GossipsController#create, rendering head :no_content
+Completed 204 No Content in 27ms (ActiveRecord: 4.7ms)
+
+
+  [1m[36mGossip Load (0.9ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" LIMIT ?[0m  [["LIMIT", 11]]
+Started GET "/gossips/new" for 127.0.0.1 at 2018-01-31 15:36:53 +0100
+Processing by GossipsController#new as HTML
+  Rendering gossips/new.html.erb within layouts/application
+  Rendered gossips/new.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 12ms (Views: 10.7ms)
+
+
+Started POST "/gossips" for 127.0.0.1 at 2018-01-31 15:36:59 +0100
+Processing by GossipsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"eJ7UfSWhiW1cdh8ibbupnS7xbq4Otrml36oVe8LFw8Tppym5gKv/31BkU+RH3K9C1xbstamSKi2IgfLMnbSagA==", "title"=>"gossip2", "text"=>"MonGossip", "commit"=>"Créer un nouveau gossip"}
+Completed 400 Bad Request in 2ms
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: gossip):
+  
+app/controllers/gossips_controller.rb:10:in `create'
+Started GET "/gossips" for 127.0.0.1 at 2018-01-31 15:37:39 +0100
+Processing by GossipsController#index as HTML
+  Rendering gossips/index.html.erb within layouts/application
+  Rendered gossips/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 11ms (Views: 10.5ms)
+
+
+Started GET "/gossips/new" for 127.0.0.1 at 2018-01-31 15:37:45 +0100
+Processing by GossipsController#new as HTML
+  Rendering gossips/new.html.erb within layouts/application
+  Rendered gossips/new.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 15ms (Views: 13.5ms)
+
+
+Started POST "/gossips" for 127.0.0.1 at 2018-01-31 15:37:54 +0100
+Processing by GossipsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Nr7IPnZDtN9lhG/a1J7s1hA5EXggYwD1EjuV8POigMSnhzX600nCbWmWIxz++eoJ6d6TY4dHk31FEHJHrNPZgA==", "title"=>"gossip2", "text"=>"contenu", "commit"=>"Créer un nouveau gossip"}
+Completed 400 Bad Request in 3ms
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: Gossip):
+  
+app/controllers/gossips_controller.rb:10:in `create'
+Started GET "/gossips/new" for 127.0.0.1 at 2018-01-31 15:39:51 +0100
+Processing by GossipsController#new as HTML
+  Rendering gossips/new.html.erb within layouts/application
+  Rendered gossips/new.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 13ms (Views: 12.1ms)
+
+
+Started POST "/gossips" for 127.0.0.1 at 2018-01-31 15:40:00 +0100
+Processing by GossipsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"2MIzNyKSU/wYFriJR1UfBaYjAdBMsCUbkOiB321kPtNJ+87zh5glThQE9E9tMhnaX8SDy+uUtpPHw2ZoMhVnlw==", "title"=>"gossip2", "text"=>"contenu", "commit"=>"Créer un nouveau gossip"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "gossips" ("anonymous_author", "content", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["anonymous_author", "gossip2"], ["content", "contenu"], ["created_at", "2018-01-31 14:40:00.371524"], ["updated_at", "2018-01-31 14:40:00.371524"]]
+  [1m[35m (2.9ms)[0m  [1m[36mcommit transaction[0m
+No template found for GossipsController#create, rendering head :no_content
+Completed 204 No Content in 27ms (ActiveRecord: 4.5ms)
+
+
+Started GET "/gossips/new" for 127.0.0.1 at 2018-01-31 15:40:47 +0100
+Processing by GossipsController#new as HTML
+  Rendering gossips/new.html.erb within layouts/application
+  Rendered gossips/new.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 13ms (Views: 12.7ms)
+
+
+Started POST "/gossips" for 127.0.0.1 at 2018-01-31 15:40:51 +0100
+Processing by GossipsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"W969A3DBgVvRlyki+aSaA2R39FE7cIdkuGtbSAU506PK50DH1cv36d2FZeTTw5zcnZB2SpxUFOzvQLz/WkiK5w==", "title"=>"gossip2", "text"=>"contenu", "commit"=>"Créer un nouveau gossip"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "gossips" ("anonymous_author", "content", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["anonymous_author", "gossip2"], ["content", "contenu"], ["created_at", "2018-01-31 14:40:51.383557"], ["updated_at", "2018-01-31 14:40:51.383557"]]
+  [1m[35m (3.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/gossips/6
+Completed 302 Found in 16ms (ActiveRecord: 4.4ms)
+
+
+Started GET "/gossips/6" for 127.0.0.1 at 2018-01-31 15:40:51 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mGossip Load (0.2ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+Completed 406 Not Acceptable in 14ms (ActiveRecord: 0.2ms)
+
+
+  
+ActionController::UnknownFormat (GossipsController#show is missing a template for this request format and variant.
+
+request.formats: ["text/html"]
+request.variant: []
+
+NOTE! For XHR/Ajax or API requests, this action would normally respond with 204 No Content: an empty white screen. Since you're loading it in a web browser, we assume that you expected to actually render a template, not nothing, so we're showing an error to be extra-clear. If you expect 204 No Content, carry on. That's what you'll get from an XHR or API request. Give it a shot.):
+  
+actionpack (5.1.4) lib/action_controller/metal/implicit_render.rb:53:in `default_render'
+actionpack (5.1.4) lib/action_controller/metal/basic_implicit_render.rb:4:in `block in send_action'
+actionpack (5.1.4) lib/action_controller/metal/basic_implicit_render.rb:4:in `tap'
+actionpack (5.1.4) lib/action_controller/metal/basic_implicit_render.rb:4:in `send_action'
+actionpack (5.1.4) lib/abstract_controller/base.rb:186:in `process_action'
+actionpack (5.1.4) lib/action_controller/metal/rendering.rb:30:in `process_action'
+actionpack (5.1.4) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+activesupport (5.1.4) lib/active_support/callbacks.rb:131:in `run_callbacks'
+actionpack (5.1.4) lib/abstract_controller/callbacks.rb:19:in `process_action'
+actionpack (5.1.4) lib/action_controller/metal/rescue.rb:20:in `process_action'
+actionpack (5.1.4) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+activesupport (5.1.4) lib/active_support/notifications.rb:166:in `block in instrument'
+activesupport (5.1.4) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+activesupport (5.1.4) lib/active_support/notifications.rb:166:in `instrument'
+actionpack (5.1.4) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+actionpack (5.1.4) lib/action_controller/metal/params_wrapper.rb:252:in `process_action'
+activerecord (5.1.4) lib/active_record/railties/controller_runtime.rb:22:in `process_action'
+actionpack (5.1.4) lib/abstract_controller/base.rb:124:in `process'
+actionview (5.1.4) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.1.4) lib/action_controller/metal.rb:189:in `dispatch'
+actionpack (5.1.4) lib/action_controller/metal.rb:253:in `dispatch'
+actionpack (5.1.4) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (5.1.4) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+actionpack (5.1.4) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (5.1.4) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.4) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.4) lib/action_dispatch/routing/route_set.rb:834:in `call'
+rack (2.0.3) lib/rack/etag.rb:25:in `call'
+rack (2.0.3) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.3) lib/rack/head.rb:12:in `call'
+rack (2.0.3) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.3) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.4) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.4) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.4) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.9.1) lib/puma/configuration.rb:224:in `call'
+puma (3.9.1) lib/puma/server.rb:602:in `handle_request'
+puma (3.9.1) lib/puma/server.rb:435:in `process_client'
+puma (3.9.1) lib/puma/server.rb:299:in `block in run'
+puma (3.9.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/gossips/new" for 127.0.0.1 at 2018-01-31 15:43:53 +0100
+Processing by GossipsController#new as HTML
+  Rendering gossips/new.html.erb within layouts/application
+  Rendered gossips/new.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 14ms (Views: 13.2ms)
+
+
+Started POST "/gossips" for 127.0.0.1 at 2018-01-31 15:44:10 +0100
+Processing by GossipsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"OUusV8gn1Lxi7aQ3KpXXtAmOJfKe0qPvx2ZToEGxDb2oclGTbS2iDm7/6PEA8tFr8Gmn6Tn2MGeQTbQXHsBU+Q==", "title"=>"MonSuperGossip", "text"=>"Ceci est le contenu", "commit"=>"Créer un nouveau gossip"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "gossips" ("anonymous_author", "content", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["anonymous_author", "MonSuperGossip"], ["content", "Ceci est le contenu"], ["created_at", "2018-01-31 14:44:10.962479"], ["updated_at", "2018-01-31 14:44:10.962479"]]
+  [1m[35m (3.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/gossips/7
+Completed 302 Found in 16ms (ActiveRecord: 4.9ms)
+
+
+Started GET "/gossips/7" for 127.0.0.1 at 2018-01-31 15:44:10 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mGossip Load (0.1ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering gossips/show.html.erb within layouts/application
+  Rendered gossips/show.html.erb within layouts/application (2.6ms)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.1ms)
+
+
+  
+ActionView::Template::Error (undefined method `anonymous_author' for nil:NilClass):
+    1: <h1>Mon gossip !</h1>
+    2: <p><%= @article.anonymous_author %></p>
+  
+app/views/gossips/show.html.erb:2:in `_app_views_gossips_show_html_erb__1851434928482718697_70216082597740'
+Started GET "/gossips/new" for 127.0.0.1 at 2018-01-31 15:44:22 +0100
+Processing by GossipsController#new as HTML
+  Rendering gossips/new.html.erb within layouts/application
+  Rendered gossips/new.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 13ms (Views: 12.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/gossips" for 127.0.0.1 at 2018-01-31 15:44:41 +0100
+Processing by GossipsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"M7eIbDsyz/deLZXuL5UOoqA+60fAIlfRlQslEhI3+8uijnWonji5RVI/2SgF8gh9WdlpXGcGxFnCIMKlTUaijw==", "title"=>"MonSuperGossip", "text"=>"Ceci est le contenu", "commit"=>"Créer un nouveau gossip"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "gossips" ("anonymous_author", "content", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["anonymous_author", "MonSuperGossip"], ["content", "Ceci est le contenu"], ["created_at", "2018-01-31 14:44:41.434479"], ["updated_at", "2018-01-31 14:44:41.434479"]]
+  [1m[35m (3.2ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/gossips/8
+Completed 302 Found in 7ms (ActiveRecord: 3.6ms)
+
+
+Started GET "/gossips/8" for 127.0.0.1 at 2018-01-31 15:44:41 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mGossip Load (0.1ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering gossips/show.html.erb within layouts/application
+  Rendered gossips/show.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 14ms (Views: 12.9ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/gossip/new" for 127.0.0.1 at 2018-01-31 15:45:31 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/gossip/new"):
+  
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.9.1) lib/puma/configuration.rb:224:in `call'
+puma (3.9.1) lib/puma/server.rb:602:in `handle_request'
+puma (3.9.1) lib/puma/server.rb:435:in `process_client'
+puma (3.9.1) lib/puma/server.rb:299:in `block in run'
+puma (3.9.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/gossips/new" for 127.0.0.1 at 2018-01-31 15:45:35 +0100
+Processing by GossipsController#new as HTML
+  Rendering gossips/new.html.erb within layouts/application
+  Rendered gossips/new.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 16ms (Views: 15.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/gossips" for 127.0.0.1 at 2018-01-31 15:45:56 +0100
+Processing by GossipsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rq1k/8BLf7oROfXRwKmUp6yTD/2VK6Iwmv+zKUDFkGk/lJk7ZUEJCB0ruRfqzpJ4VXSN5jIPMbjN1FSeH7TJLQ==", "title"=>"MonSuperGossip2", "text"=>"ContenuDeMonGossip", "commit"=>"Créer un nouveau gossip"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "gossips" ("anonymous_author", "content", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["anonymous_author", "MonSuperGossip2"], ["content", "ContenuDeMonGossip"], ["created_at", "2018-01-31 14:45:56.330277"], ["updated_at", "2018-01-31 14:45:56.330277"]]
+  [1m[35m (3.6ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/gossips/9
+Completed 302 Found in 9ms (ActiveRecord: 4.6ms)
+
+
+Started GET "/gossips/9" for 127.0.0.1 at 2018-01-31 15:45:56 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mGossip Load (0.1ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  Rendering gossips/show.html.erb within layouts/application
+  Rendered gossips/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 16ms (Views: 14.5ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/gossips/new" for 127.0.0.1 at 2018-01-31 15:48:53 +0100
+Processing by GossipsController#new as HTML
+  Rendering gossips/new.html.erb within layouts/application
+  Rendered gossips/new.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 14ms (Views: 13.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/gossips" for 127.0.0.1 at 2018-01-31 15:49:14 +0100
+Processing by GossipsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"UsYVLljWRfq5Y9DY7HIRbV62cYceI/FJGvcwxgqJGIPD/+jq/dwzSLVxnB7GFReyp1HznLkHYsFN3NdxVfhBxw==", "title"=>"MonIncroyableGossip", "text"=>"contu de l'incroyable gossip", "commit"=>"Créer un nouveau gossip"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (2.0ms)[0m  [1m[32mINSERT INTO "gossips" ("anonymous_author", "content", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["anonymous_author", "MonIncroyableGossip"], ["content", "contu de l'incroyable gossip"], ["created_at", "2018-01-31 14:49:14.115594"], ["updated_at", "2018-01-31 14:49:14.115594"]]
+  [1m[35m (3.3ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/gossips/10
+Completed 302 Found in 11ms (ActiveRecord: 5.4ms)
+
+
+Started GET "/gossips/10" for 127.0.0.1 at 2018-01-31 15:49:14 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mGossip Load (0.2ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering gossips/show.html.erb within layouts/application
+  Rendered gossips/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 14ms (Views: 11.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/gossips/new" for 127.0.0.1 at 2018-01-31 15:49:36 +0100
+Processing by GossipsController#new as HTML
+  Rendering gossips/new.html.erb within layouts/application
+  Rendered gossips/new.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 15ms (Views: 13.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/gossips" for 127.0.0.1 at 2018-01-31 15:50:42 +0100
+Processing by GossipsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"EhlzoGNmHHMmdU+J0MeR2J/53Erz4Z5XNTPJaxzh9mGDII5kxmxqwSpnA0/6oJcHZh5eUVTFDd9iGC7cQ5CvJQ==", "title"=>"supergossip", "text"=>"monsupergossip!!", "commit"=>"Créer un nouveau gossip"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "gossips" ("anonymous_author", "content", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["anonymous_author", "supergossip"], ["content", "monsupergossip!!"], ["created_at", "2018-01-31 14:50:42.480819"], ["updated_at", "2018-01-31 14:50:42.480819"]]
+  [1m[35m (3.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/gossips/11
+Completed 302 Found in 8ms (ActiveRecord: 3.9ms)
+
+
+Started GET "/gossips/11" for 127.0.0.1 at 2018-01-31 15:50:42 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mGossip Load (0.1ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  Rendering gossips/show.html.erb within layouts/application
+  Rendered gossips/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 21ms (Views: 20.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/gossips/new" for 127.0.0.1 at 2018-01-31 15:54:58 +0100
+Processing by GossipsController#new as HTML
+  Rendering gossips/new.html.erb within layouts/application
+  Rendered gossips/new.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 15ms (Views: 14.5ms)
+
+
+Started POST "/gossips" for 127.0.0.1 at 2018-01-31 15:55:12 +0100
+Processing by GossipsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"inLByPGuBU0cL005Iy7ZvRnwlSk5hufs3IZnAu5p7VsbSzwMVKRz/xA9Af8JSd9i4BcXMp6idGSLrYC1sRi0Hw==", "title"=>"monGossip4", "text"=>"Montresbongossip", "commit"=>"Créer un nouveau gossip"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "gossips" ("anonymous_author", "content", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["anonymous_author", "monGossip4"], ["content", "Montresbongossip"], ["created_at", "2018-01-31 14:55:12.961844"], ["updated_at", "2018-01-31 14:55:12.961844"]]
+  [1m[35m (4.2ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/gossips/12
+Completed 302 Found in 18ms (ActiveRecord: 6.1ms)
+
+
+Started GET "/gossips/12" for 127.0.0.1 at 2018-01-31 15:55:12 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mGossip Load (0.3ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  Rendering gossips/show.html.erb within layouts/application
+  Rendered gossips/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 18ms (Views: 14.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-31 15:55:16 +0100
+Processing by GossipsController#index as HTML
+  Rendering gossips/index.html.erb within layouts/application
+  Rendered gossips/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 18ms (Views: 15.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/nex" for 127.0.0.1 at 2018-01-31 15:55:38 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/nex"):
+  
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.9.1) lib/puma/configuration.rb:224:in `call'
+puma (3.9.1) lib/puma/server.rb:602:in `handle_request'
+puma (3.9.1) lib/puma/server.rb:435:in `process_client'
+puma (3.9.1) lib/puma/server.rb:299:in `block in run'
+puma (3.9.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/new" for 127.0.0.1 at 2018-01-31 15:55:41 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/new"):
+  
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.9.1) lib/puma/configuration.rb:224:in `call'
+puma (3.9.1) lib/puma/server.rb:602:in `handle_request'
+puma (3.9.1) lib/puma/server.rb:435:in `process_client'
+puma (3.9.1) lib/puma/server.rb:299:in `block in run'
+puma (3.9.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/new" for 127.0.0.1 at 2018-01-31 15:58:11 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/new"):
+  
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.9.1) lib/puma/configuration.rb:224:in `call'
+puma (3.9.1) lib/puma/server.rb:602:in `handle_request'
+puma (3.9.1) lib/puma/server.rb:435:in `process_client'
+puma (3.9.1) lib/puma/server.rb:299:in `block in run'
+puma (3.9.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/gossip/new" for 127.0.0.1 at 2018-01-31 15:58:22 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/gossip/new"):
+  
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.9.1) lib/puma/configuration.rb:224:in `call'
+puma (3.9.1) lib/puma/server.rb:602:in `handle_request'
+puma (3.9.1) lib/puma/server.rb:435:in `process_client'
+puma (3.9.1) lib/puma/server.rb:299:in `block in run'
+puma (3.9.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/gossips/new" for 127.0.0.1 at 2018-01-31 15:58:26 +0100
+Processing by GossipsController#new as HTML
+  Rendering gossips/new.html.erb within layouts/application
+  Rendered gossips/new.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 20ms (Views: 19.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/gossips" for 127.0.0.1 at 2018-01-31 15:58:40 +0100
+Processing by GossipsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"sGAnjLQ0Ff0uSwfk0WcPTRruZfGvB8YwTE0SHUa2hhwhWdpIET5jTyJZSyL7AAmS4wnn6ggjVbgbZvWqGcffWA==", "title"=>"nvogossip", "text"=>"monnvogossip", "commit"=>"Créer un nouveau gossip"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "gossips" ("anonymous_author", "content", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["anonymous_author", "nvogossip"], ["content", "monnvogossip"], ["created_at", "2018-01-31 14:58:40.934586"], ["updated_at", "2018-01-31 14:58:40.934586"]]
+  [1m[35m (3.7ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/gossips/13
+Completed 302 Found in 9ms (ActiveRecord: 4.2ms)
+
+
+Started GET "/gossips/13" for 127.0.0.1 at 2018-01-31 15:58:40 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"13"}
+  [1m[36mGossip Load (0.1ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  Rendering gossips/show.html.erb within layouts/application
+  Rendered gossips/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 16ms (Views: 13.9ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/gossip/new" for 127.0.0.1 at 2018-01-31 15:58:42 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/gossip/new"):
+  
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.9.1) lib/puma/configuration.rb:224:in `call'
+puma (3.9.1) lib/puma/server.rb:602:in `handle_request'
+puma (3.9.1) lib/puma/server.rb:435:in `process_client'
+puma (3.9.1) lib/puma/server.rb:299:in `block in run'
+puma (3.9.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/gossips/13" for 127.0.0.1 at 2018-01-31 15:58:58 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"13"}
+  [1m[36mGossip Load (0.1ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  Rendering gossips/show.html.erb within layouts/application
+  Rendered gossips/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 18ms (Views: 15.8ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/gossips/new" for 127.0.0.1 at 2018-01-31 15:58:59 +0100
+Processing by GossipsController#new as HTML
+  Rendering gossips/new.html.erb within layouts/application
+  Rendered gossips/new.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 15ms (Views: 14.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/index" for 127.0.0.1 at 2018-01-31 16:21:13 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/index"):
+  
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.9.1) lib/puma/configuration.rb:224:in `call'
+puma (3.9.1) lib/puma/server.rb:602:in `handle_request'
+puma (3.9.1) lib/puma/server.rb:435:in `process_client'
+puma (3.9.1) lib/puma/server.rb:299:in `block in run'
+puma (3.9.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2018-01-31 16:21:21 +0100
+Processing by GossipsController#index as HTML
+  Rendering gossips/index.html.erb within layouts/application
+  [1m[36mGossip Load (0.3ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips"[0m
+  Rendered gossips/index.html.erb within layouts/application (7.2ms)
+Completed 200 OK in 24ms (Views: 21.4ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/gossips/1" for 127.0.0.1 at 2018-01-31 16:21:27 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGossip Load (0.2ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering gossips/show.html.erb within layouts/application
+  Rendered gossips/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 16ms (Views: 14.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/gossips/2" for 127.0.0.1 at 2018-01-31 16:21:33 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mGossip Load (0.1ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering gossips/show.html.erb within layouts/application
+  Rendered gossips/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 17ms (Views: 15.3ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/gossips/7" for 127.0.0.1 at 2018-01-31 16:21:36 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mGossip Load (0.1ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering gossips/show.html.erb within layouts/application
+  Rendered gossips/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 21ms (Views: 19.3ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-31 16:39:54 +0100
+  
+SyntaxError (/home/matthieu/THP/Rails_J3/the_gossip_project/app/controllers/gossips_controller.rb:43: syntax error, unexpected keyword_end, expecting end-of-input):
+  
+app/controllers/gossips_controller.rb:43: syntax error, unexpected keyword_end, expecting end-of-input
+Started GET "/" for 127.0.0.1 at 2018-01-31 16:40:15 +0100
+Processing by GossipsController#index as HTML
+  Rendering gossips/index.html.erb within layouts/application
+  [1m[36mGossip Load (0.2ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips"[0m
+  Rendered gossips/index.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 23ms (Views: 20.0ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/gossips/new" for 127.0.0.1 at 2018-01-31 16:40:26 +0100
+Processing by GossipsController#new as HTML
+  Rendering gossips/new.html.erb within layouts/application
+  Rendered gossips/new.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 15ms (Views: 14.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/gossips" for 127.0.0.1 at 2018-01-31 16:40:45 +0100
+Processing by GossipsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"iG7aKmvkB5kbNnh6td8GXiSl+okofSee1/N4IxhyieAZVyfuzu5xKxckNLyfuACB3UJ4ko9ZtBaA2J+URwPQpA==", "title"=>"nvosupergossip", "text"=>"monnvosupergossip", "commit"=>"Créer un nouveau gossip"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "gossips" ("anonymous_author", "content", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["anonymous_author", "nvosupergossip"], ["content", "monnvosupergossip"], ["created_at", "2018-01-31 15:40:45.126057"], ["updated_at", "2018-01-31 15:40:45.126057"]]
+  [1m[35m (3.6ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/gossips/14
+Completed 302 Found in 11ms (ActiveRecord: 4.1ms)
+
+
+Started GET "/gossips/14" for 127.0.0.1 at 2018-01-31 16:40:45 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"14"}
+  [1m[36mGossip Load (0.3ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  Rendering gossips/show.html.erb within layouts/application
+  Rendered gossips/show.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 20ms (Views: 16.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/gossips/edit" for 127.0.0.1 at 2018-01-31 16:40:49 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"edit"}
+  [1m[36mGossip Load (0.3ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+Completed 404 Not Found in 2ms (ActiveRecord: 0.3ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Gossip with 'id'=edit):
+  
+app/controllers/gossips_controller.rb:20:in `show'
+Started GET "/gossips/edit" for 127.0.0.1 at 2018-01-31 16:45:05 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"edit"}
+  [1m[36mGossip Load (0.2ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+Completed 404 Not Found in 5ms (ActiveRecord: 0.9ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Gossip with 'id'=edit):
+  
+app/controllers/gossips_controller.rb:20:in `show'
+Started GET "/gossips/edit" for 127.0.0.1 at 2018-01-31 16:45:08 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"edit"}
+  [1m[36mGossip Load (0.2ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+Completed 404 Not Found in 2ms (ActiveRecord: 0.2ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Gossip with 'id'=edit):
+  
+app/controllers/gossips_controller.rb:20:in `show'
+Started GET "/gossips/14" for 127.0.0.1 at 2018-01-31 16:45:11 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"14"}
+  [1m[36mGossip Load (0.1ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  Rendering gossips/show.html.erb within layouts/application
+  Rendered gossips/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 26ms (Views: 12.5ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/gossips/edit" for 127.0.0.1 at 2018-01-31 16:45:18 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"edit"}
+  [1m[36mGossip Load (0.1ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+Completed 404 Not Found in 1ms (ActiveRecord: 0.1ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Gossip with 'id'=edit):
+  
+app/controllers/gossips_controller.rb:20:in `show'
+Started GET "/gossips/14" for 127.0.0.1 at 2018-01-31 16:45:19 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"14"}
+  [1m[36mGossip Load (0.3ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  Rendering gossips/show.html.erb within layouts/application
+  Rendered gossips/show.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 23ms (Views: 19.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/gossips/new" for 127.0.0.1 at 2018-01-31 16:45:21 +0100
+Processing by GossipsController#new as HTML
+  Rendering gossips/new.html.erb within layouts/application
+  Rendered gossips/new.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 19ms (Views: 17.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/gossips" for 127.0.0.1 at 2018-01-31 16:45:28 +0100
+Processing by GossipsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"issFNJhe0hLmZo1PUgMNF1EkeAEvSl5epYV04JBsfpE5MdF0f/0k+7c3MEpXK+/72RZQiCrSSIpqinbT2yRn4g==", "title"=>"hhhh", "text"=>"mmmm", "commit"=>"Créer un nouveau gossip"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "gossips" ("anonymous_author", "content", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["anonymous_author", "hhhh"], ["content", "mmmm"], ["created_at", "2018-01-31 15:45:28.097673"], ["updated_at", "2018-01-31 15:45:28.097673"]]
+  [1m[35m (3.4ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/gossips/15
+Completed 302 Found in 10ms (ActiveRecord: 3.8ms)
+
+
+Started GET "/gossips/15" for 127.0.0.1 at 2018-01-31 16:45:28 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"15"}
+  [1m[36mGossip Load (0.1ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  Rendering gossips/show.html.erb within layouts/application
+  Rendered gossips/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 16ms (Views: 14.2ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/gossips/edit" for 127.0.0.1 at 2018-01-31 16:45:29 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"edit"}
+  [1m[36mGossip Load (0.1ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+Completed 404 Not Found in 2ms (ActiveRecord: 0.1ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Gossip with 'id'=edit):
+  
+app/controllers/gossips_controller.rb:20:in `show'
+Started GET "/gossips/15" for 127.0.0.1 at 2018-01-31 16:49:44 +0100
+  
+SyntaxError (/home/matthieu/THP/Rails_J3/the_gossip_project/app/controllers/gossips_controller.rb:37: syntax error, unexpected keyword_end, expecting end-of-input):
+  
+app/controllers/gossips_controller.rb:37: syntax error, unexpected keyword_end, expecting end-of-input
+Started POST "/gossips" for 127.0.0.1 at 2018-01-31 16:49:47 +0100
+  
+SyntaxError (/home/matthieu/THP/Rails_J3/the_gossip_project/app/controllers/gossips_controller.rb:37: syntax error, unexpected keyword_end, expecting end-of-input):
+  
+app/controllers/gossips_controller.rb:37: syntax error, unexpected keyword_end, expecting end-of-input
+Started POST "/gossips" for 127.0.0.1 at 2018-01-31 16:50:02 +0100
+Processing by GossipsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"issFNJhe0hLmZo1PUgMNF1EkeAEvSl5epYV04JBsfpE5MdF0f/0k+7c3MEpXK+/72RZQiCrSSIpqinbT2yRn4g==", "title"=>"hhhh", "text"=>"mmmm", "commit"=>"Créer un nouveau gossip"}
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "gossips" ("anonymous_author", "content", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["anonymous_author", "hhhh"], ["content", "mmmm"], ["created_at", "2018-01-31 15:50:02.997884"], ["updated_at", "2018-01-31 15:50:02.997884"]]
+  [1m[35m (3.3ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/gossips/16
+Completed 302 Found in 15ms (ActiveRecord: 4.3ms)
+
+
+Started GET "/gossips/16" for 127.0.0.1 at 2018-01-31 16:50:03 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"16"}
+  [1m[36mGossip Load (0.1ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  Rendering gossips/show.html.erb within layouts/application
+  Rendered gossips/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 15ms (Views: 13.8ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/gossips/edit" for 127.0.0.1 at 2018-01-31 16:50:04 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"edit"}
+  [1m[36mGossip Load (0.1ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+Completed 404 Not Found in 1ms (ActiveRecord: 0.1ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Gossip with 'id'=edit):
+  
+app/controllers/gossips_controller.rb:20:in `show'
+Started GET "/gossips/16" for 127.0.0.1 at 2018-01-31 16:53:03 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"16"}
+  [1m[36mGossip Load (0.1ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  Rendering gossips/show.html.erb within layouts/application
+  Rendered gossips/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 18ms (Views: 15.8ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/gossips/edit" for 127.0.0.1 at 2018-01-31 16:53:05 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"edit"}
+  [1m[36mGossip Load (0.2ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+Completed 404 Not Found in 2ms (ActiveRecord: 0.2ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Gossip with 'id'=edit):
+  
+app/controllers/gossips_controller.rb:20:in `show'
+Started GET "/gossips/new" for 127.0.0.1 at 2018-01-31 16:53:13 +0100
+Processing by GossipsController#new as HTML
+  Rendering gossips/new.html.erb within layouts/application
+  Rendered gossips/new.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 14ms (Views: 13.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/gossips" for 127.0.0.1 at 2018-01-31 16:53:19 +0100
+Processing by GossipsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"MsgGEA+3/A9YqsU7r2B5abpbyEzUFwg0Qg9q7hwp+rmj8fvUqr2KvVS4if2FB3+2Q7xKV3Mzm7wVJI1ZQ1ij/Q==", "title"=>"ttttt", "text"=>"qqqqq", "commit"=>"Créer un nouveau gossip"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "gossips" ("anonymous_author", "content", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["anonymous_author", "ttttt"], ["content", "qqqqq"], ["created_at", "2018-01-31 15:53:19.364305"], ["updated_at", "2018-01-31 15:53:19.364305"]]
+  [1m[35m (3.4ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/gossips/17
+Completed 302 Found in 13ms (ActiveRecord: 4.6ms)
+
+
+Started GET "/gossips/17" for 127.0.0.1 at 2018-01-31 16:53:19 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"17"}
+  [1m[36mGossip Load (0.1ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering gossips/show.html.erb within layouts/application
+  Rendered gossips/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 13ms (Views: 11.4ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/gossips/edit" for 127.0.0.1 at 2018-01-31 16:53:22 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"edit"}
+  [1m[36mGossip Load (0.1ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+Completed 404 Not Found in 2ms (ActiveRecord: 0.1ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Gossip with 'id'=edit):
+  
+app/controllers/gossips_controller.rb:20:in `show'
+Started GET "/gossips/17" for 127.0.0.1 at 2018-01-31 16:54:01 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"17"}
+  [1m[36mGossip Load (0.1ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering gossips/show.html.erb within layouts/application
+  Rendered gossips/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 15ms (Views: 13.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-31 16:54:06 +0100
+Processing by GossipsController#index as HTML
+  Rendering gossips/index.html.erb within layouts/application
+  [1m[36mGossip Load (0.3ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips"[0m
+  Rendered gossips/index.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 19ms (Views: 17.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/gossips/new" for 127.0.0.1 at 2018-01-31 16:54:09 +0100
+Processing by GossipsController#new as HTML
+  Rendering gossips/new.html.erb within layouts/application
+  Rendered gossips/new.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 17ms (Views: 15.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/gossips/edit" for 127.0.0.1 at 2018-01-31 16:54:15 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"edit"}
+  [1m[36mGossip Load (0.2ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+Completed 404 Not Found in 2ms (ActiveRecord: 0.2ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Gossip with 'id'=edit):
+  
+app/controllers/gossips_controller.rb:20:in `show'
+Started GET "/gossips/17" for 127.0.0.1 at 2018-01-31 16:59:18 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"17"}
+  [1m[36mGossip Load (0.1ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering gossips/show.html.erb within layouts/application
+  Rendered gossips/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 18ms (Views: 11.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/gossips/edit" for 127.0.0.1 at 2018-01-31 16:59:19 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"edit"}
+  [1m[36mGossip Load (0.2ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+Completed 404 Not Found in 3ms (ActiveRecord: 0.2ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Gossip with 'id'=edit):
+  
+app/controllers/gossips_controller.rb:20:in `show'
+Started GET "/gossips/17" for 127.0.0.1 at 2018-01-31 17:04:24 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"17"}
+  Rendering gossips/show.html.erb within layouts/application
+  Rendered gossips/show.html.erb within layouts/application (2.3ms)
+Completed 500 Internal Server Error in 5ms
+
+
+  
+ActionView::Template::Error (undefined method `anonymous_author' for nil:NilClass):
+    1: <h1>Mon gossip !</h1>
+    2: <p><%= @gossip.anonymous_author %></p>
+    3: <p><%= @gossip.content %></p>
+    4: <p>
+    5: <%= link_to 'Index', index_path %>
+  
+app/views/gossips/show.html.erb:2:in `_app_views_gossips_show_html_erb__1851434928482718697_29837520'
+Started GET "/gossips/new" for 127.0.0.1 at 2018-01-31 17:04:30 +0100
+Processing by GossipsController#new as HTML
+  Rendering gossips/new.html.erb within layouts/application
+  Rendered gossips/new.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 15ms (Views: 14.4ms)
+
+
+Started POST "/gossips" for 127.0.0.1 at 2018-01-31 17:04:34 +0100
+Processing by GossipsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"C7YyvpsRe2SxfNYQi/qVAeFx1d4yAx7Uxztr2i0WQNuaj896PhsN1r1umtahnZPeGJZXxZUnjVyQEIxtcmcZnw==", "title"=>"eee", "text"=>"cc", "commit"=>"Créer un nouveau gossip"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.4ms)[0m  [1m[32mINSERT INTO "gossips" ("anonymous_author", "content", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["anonymous_author", "eee"], ["content", "cc"], ["created_at", "2018-01-31 16:04:34.814054"], ["updated_at", "2018-01-31 16:04:34.814054"]]
+  [1m[35m (3.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/gossips/18
+Completed 302 Found in 17ms (ActiveRecord: 5.5ms)
+
+
+Started GET "/gossips/18" for 127.0.0.1 at 2018-01-31 17:04:34 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"18"}
+  Rendering gossips/show.html.erb within layouts/application
+  Rendered gossips/show.html.erb within layouts/application (2.2ms)
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `anonymous_author' for nil:NilClass):
+    1: <h1>Mon gossip !</h1>
+    2: <p><%= @gossip.anonymous_author %></p>
+    3: <p><%= @gossip.content %></p>
+    4: <p>
+    5: <%= link_to 'Index', index_path %>
+  
+app/views/gossips/show.html.erb:2:in `_app_views_gossips_show_html_erb__1851434928482718697_70216083518960'
+Started GET "/gossips/18" for 127.0.0.1 at 2018-01-31 17:05:00 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"18"}
+  [1m[36mGossip Load (0.1ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 18], ["LIMIT", 1]]
+  Rendering gossips/show.html.erb within layouts/application
+  Rendered gossips/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 20ms (Views: 12.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/gossips/new" for 127.0.0.1 at 2018-01-31 17:05:35 +0100
+Processing by GossipsController#new as HTML
+  Rendering gossips/new.html.erb within layouts/application
+  Rendered gossips/new.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 14ms (Views: 12.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/gossips" for 127.0.0.1 at 2018-01-31 17:05:40 +0100
+Processing by GossipsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Eiq5I0lUevLDBsPpBeqJeLCfrq3M4jHBQ33nHpFcgFyDE0Tn7F4MQM8Ujy8vjY+nSXgstmvGokkUVgCpzi3ZGA==", "title"=>"ccc", "text"=>"sss", "commit"=>"Créer un nouveau gossip"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "gossips" ("anonymous_author", "content", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["anonymous_author", "ccc"], ["content", "sss"], ["created_at", "2018-01-31 16:05:40.204577"], ["updated_at", "2018-01-31 16:05:40.204577"]]
+  [1m[35m (3.3ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/gossips/19
+Completed 302 Found in 8ms (ActiveRecord: 4.1ms)
+
+
+Started GET "/gossips/19" for 127.0.0.1 at 2018-01-31 17:05:40 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"19"}
+  [1m[36mGossip Load (0.1ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  Rendering gossips/show.html.erb within layouts/application
+  Rendered gossips/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 15ms (Views: 13.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/gossips/19" for 127.0.0.1 at 2018-01-31 17:06:44 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"19"}
+  [1m[36mGossip Load (0.1ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+Redirected to http://localhost:3000/gossips/19
+Completed 302 Found in 8ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/gossips/19" for 127.0.0.1 at 2018-01-31 17:06:44 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"19"}
+  [1m[36mGossip Load (0.1ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+Redirected to http://localhost:3000/gossips/19
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/gossips/19" for 127.0.0.1 at 2018-01-31 17:06:44 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"19"}
+  [1m[36mGossip Load (0.1ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+Redirected to http://localhost:3000/gossips/19
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/gossips/19" for 127.0.0.1 at 2018-01-31 17:06:44 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"19"}
+  [1m[36mGossip Load (0.1ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+Redirected to http://localhost:3000/gossips/19
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/gossips/19" for 127.0.0.1 at 2018-01-31 17:06:44 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"19"}
+  [1m[36mGossip Load (0.1ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+Redirected to http://localhost:3000/gossips/19
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/gossips/19" for 127.0.0.1 at 2018-01-31 17:06:44 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"19"}
+  [1m[36mGossip Load (0.1ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+Redirected to http://localhost:3000/gossips/19
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/gossips/19" for 127.0.0.1 at 2018-01-31 17:06:44 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"19"}
+  [1m[36mGossip Load (0.1ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+Redirected to http://localhost:3000/gossips/19
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/gossips/19" for 127.0.0.1 at 2018-01-31 17:06:44 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"19"}
+  [1m[36mGossip Load (0.2ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+Redirected to http://localhost:3000/gossips/19
+Completed 302 Found in 1ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/gossips/19" for 127.0.0.1 at 2018-01-31 17:06:44 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"19"}
+  [1m[36mGossip Load (0.1ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+Redirected to http://localhost:3000/gossips/19
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/gossips/19" for 127.0.0.1 at 2018-01-31 17:06:44 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"19"}
+  [1m[36mGossip Load (0.1ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+Redirected to http://localhost:3000/gossips/19
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/gossips/19" for 127.0.0.1 at 2018-01-31 17:06:44 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"19"}
+  [1m[36mGossip Load (0.1ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+Redirected to http://localhost:3000/gossips/19
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/gossips/19" for 127.0.0.1 at 2018-01-31 17:06:44 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"19"}
+  [1m[36mGossip Load (0.1ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+Redirected to http://localhost:3000/gossips/19
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/gossips/19" for 127.0.0.1 at 2018-01-31 17:06:44 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"19"}
+  [1m[36mGossip Load (0.1ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+Redirected to http://localhost:3000/gossips/19
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/gossips/19" for 127.0.0.1 at 2018-01-31 17:06:44 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"19"}
+  [1m[36mGossip Load (0.1ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+Redirected to http://localhost:3000/gossips/19
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/gossips/19" for 127.0.0.1 at 2018-01-31 17:06:44 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"19"}
+  [1m[36mGossip Load (0.2ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+Redirected to http://localhost:3000/gossips/19
+Completed 302 Found in 3ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/gossips/19" for 127.0.0.1 at 2018-01-31 17:06:44 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"19"}
+  [1m[36mGossip Load (0.1ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+Redirected to http://localhost:3000/gossips/19
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/gossips/19" for 127.0.0.1 at 2018-01-31 17:06:44 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"19"}
+  [1m[36mGossip Load (0.1ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+Redirected to http://localhost:3000/gossips/19
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/gossips/19" for 127.0.0.1 at 2018-01-31 17:06:44 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"19"}
+  [1m[36mGossip Load (0.1ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+Redirected to http://localhost:3000/gossips/19
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/gossips/19" for 127.0.0.1 at 2018-01-31 17:06:44 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"19"}
+  [1m[36mGossip Load (0.1ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+Redirected to http://localhost:3000/gossips/19
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/gossips/19" for 127.0.0.1 at 2018-01-31 17:06:44 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"19"}
+  [1m[36mGossip Load (0.1ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+Redirected to http://localhost:3000/gossips/19
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/gossips/19" for 127.0.0.1 at 2018-01-31 17:06:44 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"19"}
+  [1m[36mGossip Load (0.1ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+Redirected to http://localhost:3000/gossips/19
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/gossips/19" for 127.0.0.1 at 2018-01-31 17:06:46 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"19"}
+  [1m[36mGossip Load (0.1ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+Redirected to http://localhost:3000/gossips/19
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/gossips/19" for 127.0.0.1 at 2018-01-31 17:06:46 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"19"}
+  [1m[36mGossip Load (0.1ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+Redirected to http://localhost:3000/gossips/19
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/gossips/19" for 127.0.0.1 at 2018-01-31 17:06:46 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"19"}
+  [1m[36mGossip Load (0.1ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+Redirected to http://localhost:3000/gossips/19
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/gossips/19" for 127.0.0.1 at 2018-01-31 17:06:46 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"19"}
+  [1m[36mGossip Load (0.1ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+Redirected to http://localhost:3000/gossips/19
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/gossips/19" for 127.0.0.1 at 2018-01-31 17:06:46 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"19"}
+  [1m[36mGossip Load (0.1ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+Redirected to http://localhost:3000/gossips/19
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/gossips/19" for 127.0.0.1 at 2018-01-31 17:06:46 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"19"}
+  [1m[36mGossip Load (0.1ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+Redirected to http://localhost:3000/gossips/19
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/gossips/19" for 127.0.0.1 at 2018-01-31 17:06:46 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"19"}
+  [1m[36mGossip Load (0.1ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+Redirected to http://localhost:3000/gossips/19
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/gossips/19" for 127.0.0.1 at 2018-01-31 17:06:46 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"19"}
+  [1m[36mGossip Load (0.1ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+Redirected to http://localhost:3000/gossips/19
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/gossips/19" for 127.0.0.1 at 2018-01-31 17:06:46 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"19"}
+  [1m[36mGossip Load (0.2ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+Redirected to http://localhost:3000/gossips/19
+Completed 302 Found in 3ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/gossips/19" for 127.0.0.1 at 2018-01-31 17:06:46 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"19"}
+  [1m[36mGossip Load (0.1ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+Redirected to http://localhost:3000/gossips/19
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/gossips/19" for 127.0.0.1 at 2018-01-31 17:06:46 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"19"}
+  [1m[36mGossip Load (0.1ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+Redirected to http://localhost:3000/gossips/19
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/gossips/19" for 127.0.0.1 at 2018-01-31 17:06:46 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"19"}
+  [1m[36mGossip Load (0.1ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+Redirected to http://localhost:3000/gossips/19
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/gossips/19" for 127.0.0.1 at 2018-01-31 17:06:46 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"19"}
+  [1m[36mGossip Load (0.1ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+Redirected to http://localhost:3000/gossips/19
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/gossips/19" for 127.0.0.1 at 2018-01-31 17:06:46 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"19"}
+  [1m[36mGossip Load (0.1ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+Redirected to http://localhost:3000/gossips/19
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/gossips/19" for 127.0.0.1 at 2018-01-31 17:06:46 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"19"}
+  [1m[36mGossip Load (0.1ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+Redirected to http://localhost:3000/gossips/19
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/gossips/19" for 127.0.0.1 at 2018-01-31 17:06:46 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"19"}
+  [1m[36mGossip Load (0.1ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+Redirected to http://localhost:3000/gossips/19
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/gossips/19" for 127.0.0.1 at 2018-01-31 17:06:46 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"19"}
+  [1m[36mGossip Load (0.1ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+Redirected to http://localhost:3000/gossips/19
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/gossips/19" for 127.0.0.1 at 2018-01-31 17:06:46 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"19"}
+  [1m[36mGossip Load (0.1ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+Redirected to http://localhost:3000/gossips/19
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/gossips/19" for 127.0.0.1 at 2018-01-31 17:06:46 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"19"}
+  [1m[36mGossip Load (0.1ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+Redirected to http://localhost:3000/gossips/19
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/gossips/19" for 127.0.0.1 at 2018-01-31 17:06:46 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"19"}
+  [1m[36mGossip Load (0.1ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+Redirected to http://localhost:3000/gossips/19
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/gossips/19" for 127.0.0.1 at 2018-01-31 17:06:46 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"19"}
+  [1m[36mGossip Load (0.2ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+Redirected to http://localhost:3000/gossips/19
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/gossips/new" for 127.0.0.1 at 2018-01-31 17:06:50 +0100
+Processing by GossipsController#new as HTML
+  Rendering gossips/new.html.erb within layouts/application
+  Rendered gossips/new.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 17ms (Views: 15.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/gossips" for 127.0.0.1 at 2018-01-31 17:06:54 +0100
+Processing by GossipsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"hiqaV8C4GxWMUBjMgY4G9XEpho89DVLCS8l8cmODjc810E4XJxvt/N0BpcmEpuQZ+RuuBjiVRBaExn5BKMuUvA==", "title"=>"bbb", "text"=>"aaa", "commit"=>"Créer un nouveau gossip"}
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (2.0ms)[0m  [1m[32mINSERT INTO "gossips" ("anonymous_author", "content", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["anonymous_author", "bbb"], ["content", "aaa"], ["created_at", "2018-01-31 16:06:54.120019"], ["updated_at", "2018-01-31 16:06:54.120019"]]
+  [1m[35m (3.6ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/gossips/20
+Completed 302 Found in 14ms (ActiveRecord: 5.8ms)
+
+
+Started GET "/gossips/20" for 127.0.0.1 at 2018-01-31 17:06:54 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"20"}
+  [1m[36mGossip Load (0.3ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 20], ["LIMIT", 1]]
+Redirected to http://localhost:3000/gossips/20
+Completed 302 Found in 4ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/gossips/20" for 127.0.0.1 at 2018-01-31 17:06:54 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"20"}
+  [1m[36mGossip Load (0.1ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 20], ["LIMIT", 1]]
+Redirected to http://localhost:3000/gossips/20
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/gossips/20" for 127.0.0.1 at 2018-01-31 17:06:54 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"20"}
+  [1m[36mGossip Load (0.1ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 20], ["LIMIT", 1]]
+Redirected to http://localhost:3000/gossips/20
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/gossips/20" for 127.0.0.1 at 2018-01-31 17:06:54 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"20"}
+  [1m[36mGossip Load (0.1ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 20], ["LIMIT", 1]]
+Redirected to http://localhost:3000/gossips/20
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/gossips/20" for 127.0.0.1 at 2018-01-31 17:06:54 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"20"}
+  [1m[36mGossip Load (0.1ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 20], ["LIMIT", 1]]
+Redirected to http://localhost:3000/gossips/20
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/gossips/20" for 127.0.0.1 at 2018-01-31 17:06:54 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"20"}
+  [1m[36mGossip Load (0.1ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 20], ["LIMIT", 1]]
+Redirected to http://localhost:3000/gossips/20
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/gossips/20" for 127.0.0.1 at 2018-01-31 17:06:54 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"20"}
+  [1m[36mGossip Load (0.1ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 20], ["LIMIT", 1]]
+Redirected to http://localhost:3000/gossips/20
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/gossips/20" for 127.0.0.1 at 2018-01-31 17:06:54 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"20"}
+  [1m[36mGossip Load (0.1ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 20], ["LIMIT", 1]]
+Redirected to http://localhost:3000/gossips/20
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/gossips/20" for 127.0.0.1 at 2018-01-31 17:06:54 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"20"}
+  [1m[36mGossip Load (0.1ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 20], ["LIMIT", 1]]
+Redirected to http://localhost:3000/gossips/20
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/gossips/20" for 127.0.0.1 at 2018-01-31 17:06:54 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"20"}
+  [1m[36mGossip Load (0.1ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 20], ["LIMIT", 1]]
+Redirected to http://localhost:3000/gossips/20
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/gossips/20" for 127.0.0.1 at 2018-01-31 17:06:54 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"20"}
+  [1m[36mGossip Load (0.1ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 20], ["LIMIT", 1]]
+Redirected to http://localhost:3000/gossips/20
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/gossips/20" for 127.0.0.1 at 2018-01-31 17:06:54 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"20"}
+  [1m[36mGossip Load (0.1ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 20], ["LIMIT", 1]]
+Redirected to http://localhost:3000/gossips/20
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/gossips/20" for 127.0.0.1 at 2018-01-31 17:06:54 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"20"}
+  [1m[36mGossip Load (0.1ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 20], ["LIMIT", 1]]
+Redirected to http://localhost:3000/gossips/20
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/gossips/20" for 127.0.0.1 at 2018-01-31 17:06:54 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"20"}
+  [1m[36mGossip Load (0.1ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 20], ["LIMIT", 1]]
+Redirected to http://localhost:3000/gossips/20
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/gossips/20" for 127.0.0.1 at 2018-01-31 17:06:54 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"20"}
+  [1m[36mGossip Load (0.1ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 20], ["LIMIT", 1]]
+Redirected to http://localhost:3000/gossips/20
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/gossips/20" for 127.0.0.1 at 2018-01-31 17:06:54 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"20"}
+  [1m[36mGossip Load (0.1ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 20], ["LIMIT", 1]]
+Redirected to http://localhost:3000/gossips/20
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/gossips/20" for 127.0.0.1 at 2018-01-31 17:06:54 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"20"}
+  [1m[36mGossip Load (0.1ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 20], ["LIMIT", 1]]
+Redirected to http://localhost:3000/gossips/20
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/gossips/20" for 127.0.0.1 at 2018-01-31 17:06:54 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"20"}
+  [1m[36mGossip Load (0.1ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 20], ["LIMIT", 1]]
+Redirected to http://localhost:3000/gossips/20
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/gossips/20" for 127.0.0.1 at 2018-01-31 17:06:54 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"20"}
+  [1m[36mGossip Load (0.1ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 20], ["LIMIT", 1]]
+Redirected to http://localhost:3000/gossips/20
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/gossips/20" for 127.0.0.1 at 2018-01-31 17:06:54 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"20"}
+  [1m[36mGossip Load (0.1ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 20], ["LIMIT", 1]]
+Redirected to http://localhost:3000/gossips/20
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+
+
+Started POST "/gossips" for 127.0.0.1 at 2018-01-31 17:15:14 +0100
+Processing by GossipsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"hiqaV8C4GxWMUBjMgY4G9XEpho89DVLCS8l8cmODjc810E4XJxvt/N0BpcmEpuQZ+RuuBjiVRBaExn5BKMuUvA==", "title"=>"bbb", "text"=>"aaa", "commit"=>"Créer un nouveau gossip"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "gossips" ("anonymous_author", "content", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["anonymous_author", "bbb"], ["content", "aaa"], ["created_at", "2018-01-31 16:15:14.417768"], ["updated_at", "2018-01-31 16:15:14.417768"]]
+  [1m[35m (4.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/gossips/21
+Completed 302 Found in 22ms (ActiveRecord: 4.8ms)
+
+
+Started GET "/gossips/21" for 127.0.0.1 at 2018-01-31 17:15:14 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"21"}
+  [1m[36mGossip Load (0.3ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 21], ["LIMIT", 1]]
+  Rendering gossips/show.html.erb within layouts/application
+  Rendered gossips/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 23ms (Views: 20.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/gossips/edit" for 127.0.0.1 at 2018-01-31 17:15:16 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"edit"}
+  [1m[36mGossip Load (0.1ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+Completed 404 Not Found in 2ms (ActiveRecord: 0.1ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Gossip with 'id'=edit):
+  
+app/controllers/gossips_controller.rb:20:in `show'
+Started GET "/gossips/21" for 127.0.0.1 at 2018-01-31 17:19:00 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"21"}
+  [1m[36mGossip Load (0.1ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 21], ["LIMIT", 1]]
+  Rendering gossips/show.html.erb within layouts/application
+  Rendered gossips/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 21ms (Views: 14.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/gossips/edit" for 127.0.0.1 at 2018-01-31 17:19:02 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"edit"}
+  [1m[36mGossip Load (0.1ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+Completed 404 Not Found in 1ms (ActiveRecord: 0.1ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Gossip with 'id'=edit):
+  
+app/controllers/gossips_controller.rb:20:in `show'
+Started GET "/gossips/21" for 127.0.0.1 at 2018-01-31 17:22:19 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"21"}
+  [1m[36mGossip Load (0.2ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 21], ["LIMIT", 1]]
+  Rendering gossips/show.html.erb within layouts/application
+  Rendered gossips/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 17ms (Views: 14.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/gossips/edit" for 127.0.0.1 at 2018-01-31 17:22:21 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"edit"}
+  [1m[36mGossip Load (0.2ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+Completed 404 Not Found in 2ms (ActiveRecord: 0.2ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Gossip with 'id'=edit):
+  
+app/controllers/gossips_controller.rb:20:in `show'
+Started GET "/gossips/new" for 127.0.0.1 at 2018-01-31 17:22:27 +0100
+Processing by GossipsController#new as HTML
+  Rendering gossips/new.html.erb within layouts/application
+  Rendered gossips/new.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 15ms (Views: 14.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/gossips" for 127.0.0.1 at 2018-01-31 17:22:32 +0100
+Processing by GossipsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"N5wa6LbVZHLj2JvV8nE/mVX7ZHHh/ItmbBZdBRzwq+CmpecsE98SwO/K1xPYFjlGrBzmakbYGO47PbqyQ4HypA==", "title"=>"qqqqqq", "text"=>"ppppp", "commit"=>"Créer un nouveau gossip"}
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.9ms)[0m  [1m[32mINSERT INTO "gossips" ("anonymous_author", "content", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["anonymous_author", "qqqqqq"], ["content", "ppppp"], ["created_at", "2018-01-31 16:22:32.409960"], ["updated_at", "2018-01-31 16:22:32.409960"]]
+  [1m[35m (3.4ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/gossips/22
+Completed 302 Found in 15ms (ActiveRecord: 5.4ms)
+
+
+Started GET "/gossips/22" for 127.0.0.1 at 2018-01-31 17:22:32 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"22"}
+  [1m[36mGossip Load (0.3ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 22], ["LIMIT", 1]]
+  Rendering gossips/show.html.erb within layouts/application
+  Rendered gossips/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 20ms (Views: 17.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/gossips/edit" for 127.0.0.1 at 2018-01-31 17:22:33 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"edit"}
+  [1m[36mGossip Load (0.1ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+Completed 404 Not Found in 1ms (ActiveRecord: 0.1ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Gossip with 'id'=edit):
+  
+app/controllers/gossips_controller.rb:20:in `show'
+Started GET "/gossips/22" for 127.0.0.1 at 2018-01-31 17:22:41 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"22"}
+  [1m[36mGossip Load (0.2ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 22], ["LIMIT", 1]]
+  Rendering gossips/show.html.erb within layouts/application
+  Rendered gossips/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 14ms (Views: 12.7ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/gossips" for 127.0.0.1 at 2018-01-31 17:26:39 +0100
+Processing by GossipsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"N5wa6LbVZHLj2JvV8nE/mVX7ZHHh/ItmbBZdBRzwq+CmpecsE98SwO/K1xPYFjlGrBzmakbYGO47PbqyQ4HypA==", "title"=>"qqqq", "text"=>"ppppp", "commit"=>"Créer un nouveau gossip"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "gossips" ("anonymous_author", "content", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["anonymous_author", "qqqq"], ["content", "ppppp"], ["created_at", "2018-01-31 16:26:39.492769"], ["updated_at", "2018-01-31 16:26:39.492769"]]
+  [1m[35m (6.2ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/gossips/23
+Completed 302 Found in 10ms (ActiveRecord: 6.5ms)
+
+
+Started GET "/gossips/23" for 127.0.0.1 at 2018-01-31 17:26:39 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"23"}
+  [1m[36mGossip Load (0.3ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 23], ["LIMIT", 1]]
+  Rendering gossips/show.html.erb within layouts/application
+  Rendered gossips/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 16ms (Views: 14.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/gossips/edit" for 127.0.0.1 at 2018-01-31 17:26:40 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"edit"}
+  [1m[36mGossip Load (0.1ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+Completed 404 Not Found in 1ms (ActiveRecord: 0.1ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Gossip with 'id'=edit):
+  
+app/controllers/gossips_controller.rb:20:in `show'
+Started GET "/gossips/23" for 127.0.0.1 at 2018-01-31 17:29:05 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"23"}
+  [1m[36mGossip Load (0.1ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 23], ["LIMIT", 1]]
+  Rendering gossips/show.html.erb within layouts/application
+  Rendered gossips/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 16ms (Views: 14.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/gossips/23/edit" for 127.0.0.1 at 2018-01-31 17:29:06 +0100
+Processing by GossipsController#edit as HTML
+  Parameters: {"id"=>"23"}
+  [1m[36mGossip Load (0.1ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 23], ["LIMIT", 1]]
+  Rendering gossips/edit.html.erb within layouts/application
+  Rendered gossips/edit.html.erb within layouts/application (188.0ms)
+Completed 500 Internal Server Error in 190ms (ActiveRecord: 0.1ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `welcome_path' for #<#<Class:0x007fb8e46a7508>:0x007fb8e45d8550>):
+    17:    <%= form.submit %>
+    18:    <%= link_to ':warning:Clique pour détruire:warning:', @gossip, method: :delete %>
+    19:  </p>
+    20:  <p><%= link_to 'Case départ', welcome_path %></p>
+    21:  
+    22: 
+    23: <% end %>
+  
+app/views/gossips/edit.html.erb:20:in `block in _app_views_gossips_edit_html_erb__3140823211031698838_70216041023800'
+app/views/gossips/edit.html.erb:4:in `_app_views_gossips_edit_html_erb__3140823211031698838_70216041023800'
+Started GET "/gossips/23" for 127.0.0.1 at 2018-01-31 17:29:08 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"23"}
+  [1m[36mGossip Load (0.2ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 23], ["LIMIT", 1]]
+  Rendering gossips/show.html.erb within layouts/application
+  Rendered gossips/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 16ms (Views: 13.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/gossips/new" for 127.0.0.1 at 2018-01-31 17:29:10 +0100
+Processing by GossipsController#new as HTML
+  Rendering gossips/new.html.erb within layouts/application
+  Rendered gossips/new.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 17ms (Views: 15.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/gossips" for 127.0.0.1 at 2018-01-31 17:29:14 +0100
+Processing by GossipsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"0QuYKGVWDGXJ0hasUsEOFO+9+RfZeSCb0vqL7b+3tPli8UxogvX6jJiDq6lX6ez4Z4/RntzhNk8d9Yne9P+tig==", "title"=>"ffff", "text"=>"aaa", "commit"=>"Créer un nouveau gossip"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "gossips" ("anonymous_author", "content", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["anonymous_author", "ffff"], ["content", "aaa"], ["created_at", "2018-01-31 16:29:14.186875"], ["updated_at", "2018-01-31 16:29:14.186875"]]
+  [1m[35m (4.2ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/gossips/24
+Completed 302 Found in 10ms (ActiveRecord: 4.7ms)
+
+
+Started GET "/gossips/24" for 127.0.0.1 at 2018-01-31 17:29:14 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"24"}
+  [1m[36mGossip Load (0.2ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  Rendering gossips/show.html.erb within layouts/application
+  Rendered gossips/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 19ms (Views: 16.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/gossips/24/edit" for 127.0.0.1 at 2018-01-31 17:29:15 +0100
+Processing by GossipsController#edit as HTML
+  Parameters: {"id"=>"24"}
+  [1m[36mGossip Load (0.1ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  Rendering gossips/edit.html.erb within layouts/application
+  Rendered gossips/edit.html.erb within layouts/application (168.5ms)
+Completed 500 Internal Server Error in 172ms (ActiveRecord: 0.1ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `welcome_path' for #<#<Class:0x007fb8e46a7508>:0x007fb8e42bad00>):
+    17:    <%= form.submit %>
+    18:    <%= link_to ':warning:Clique pour détruire:warning:', @gossip, method: :delete %>
+    19:  </p>
+    20:  <p><%= link_to 'Case départ', welcome_path %></p>
+    21:  
+    22: 
+    23: <% end %>
+  
+app/views/gossips/edit.html.erb:20:in `block in _app_views_gossips_edit_html_erb__3140823211031698838_70216039390200'
+app/views/gossips/edit.html.erb:4:in `_app_views_gossips_edit_html_erb__3140823211031698838_70216039390200'
+Started GET "/" for 127.0.0.1 at 2018-01-31 18:26:03 +0100
+Processing by GossipsController#index as HTML
+  Rendering gossips/index.html.erb within layouts/application
+  [1m[36mGossip Load (0.6ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips"[0m
+  Rendered gossips/index.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 28ms (Views: 26.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/gossips/1" for 127.0.0.1 at 2018-01-31 18:26:13 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGossip Load (0.1ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering gossips/show.html.erb within layouts/application
+  Rendered gossips/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 22ms (Views: 20.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-31 18:26:19 +0100
+Processing by GossipsController#index as HTML
+  Rendering gossips/index.html.erb within layouts/application
+  [1m[36mGossip Load (0.2ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips"[0m
+  Rendered gossips/index.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 29ms (Views: 27.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/gossips/2" for 127.0.0.1 at 2018-01-31 18:26:20 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mGossip Load (0.1ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering gossips/show.html.erb within layouts/application
+  Rendered gossips/show.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 35ms (Views: 33.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-31 18:26:22 +0100
+Processing by GossipsController#index as HTML
+  Rendering gossips/index.html.erb within layouts/application
+  [1m[36mGossip Load (0.4ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips"[0m
+  Rendered gossips/index.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 24ms (Views: 21.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/gossips/8" for 127.0.0.1 at 2018-01-31 18:26:23 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mGossip Load (0.1ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering gossips/show.html.erb within layouts/application
+  Rendered gossips/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 16ms (Views: 14.4ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/gossips/8/edit" for 127.0.0.1 at 2018-01-31 18:26:25 +0100
+Processing by GossipsController#edit as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mGossip Load (0.2ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering gossips/edit.html.erb within layouts/application
+  Rendered gossips/edit.html.erb within layouts/application (184.2ms)
+Completed 500 Internal Server Error in 190ms (ActiveRecord: 0.2ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `welcome_path' for #<#<Class:0x007fb8e46a7508>:0x007fb8e4310700>):
+    17:    <%= form.submit %>
+    18:    <%= link_to ':warning:Clique pour détruire:warning:', @gossip, method: :delete %>
+    19:  </p>
+    20:  <p><%= link_to 'Case départ', welcome_path %></p>
+    21:  
+    22: 
+    23: <% end %>
+  
+app/views/gossips/edit.html.erb:20:in `block in _app_views_gossips_edit_html_erb__3140823211031698838_70216039565560'
+app/views/gossips/edit.html.erb:4:in `_app_views_gossips_edit_html_erb__3140823211031698838_70216039565560'
+Started GET "/gossips/8/edit" for 127.0.0.1 at 2018-01-31 18:27:29 +0100
+Processing by GossipsController#edit as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mGossip Load (0.1ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering gossips/edit.html.erb within layouts/application
+  Rendered gossips/edit.html.erb within layouts/application (164.7ms)
+Completed 500 Internal Server Error in 168ms (ActiveRecord: 0.1ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `new_path' for #<#<Class:0x007fb8e46a7508>:0x007fb8e9410718>
+Did you mean?  view_paths):
+    17:    <%= form.submit %>
+    18:    <%= link_to ':warning:Clique pour détruire:warning:', @gossip, method: :delete %>
+    19:  </p>
+    20:  <p><%= link_to 'Case départ', new_path %></p>
+    21:  
+    22: 
+    23: <% end %>
+  
+app/views/gossips/edit.html.erb:20:in `block in _app_views_gossips_edit_html_erb__3140823211031698838_70216082034600'
+app/views/gossips/edit.html.erb:4:in `_app_views_gossips_edit_html_erb__3140823211031698838_70216082034600'
+Started GET "/gossips/8/edit" for 127.0.0.1 at 2018-01-31 18:28:17 +0100
+Processing by GossipsController#edit as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mGossip Load (0.1ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering gossips/edit.html.erb within layouts/application
+  Rendered gossips/edit.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 18ms (Views: 16.8ms | ActiveRecord: 0.1ms)
+
+
+Started PATCH "/gossips/8" for 127.0.0.1 at 2018-01-31 18:28:34 +0100
+Processing by GossipsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"J7jQoOki7RoVmZj12gsQLO0GgBITLaq7sZJJtLG2XDy2gS1kTCibqBmL1DPwbBbzFOECCbQJOTPmua4D7scFeA==", "gossip"=>{"anonymous_author"=>"MonSuperGossip", "content"=>"Ceci est le cgggg"}, "commit"=>"Update Gossip", "id"=>"8"}
+  [1m[36mGossip Load (0.1ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[33mUPDATE "gossips" SET "content" = ?, "updated_at" = ? WHERE "gossips"."id" = ?[0m  [["content", "Ceci est le cgggg"], ["updated_at", "2018-01-31 17:28:34.234869"], ["id", 8]]
+  [1m[35m (9.5ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/gossips/8
+Completed 302 Found in 18ms (ActiveRecord: 10.6ms)
+
+
+Started GET "/gossips/8" for 127.0.0.1 at 2018-01-31 18:28:34 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mGossip Load (0.2ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering gossips/show.html.erb within layouts/application
+  Rendered gossips/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 16ms (Views: 14.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/gossips/8/edit" for 127.0.0.1 at 2018-01-31 18:28:37 +0100
+Processing by GossipsController#edit as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mGossip Load (0.1ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering gossips/edit.html.erb within layouts/application
+  Rendered gossips/edit.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 18ms (Views: 16.3ms | ActiveRecord: 0.1ms)
+
+
+Started DELETE "/gossips/8" for 127.0.0.1 at 2018-01-31 18:28:43 +0100
+  
+AbstractController::ActionNotFound (The action 'destroy' could not be found for GossipsController):
+  
+actionpack (5.1.4) lib/abstract_controller/base.rb:119:in `process'
+actionview (5.1.4) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.1.4) lib/action_controller/metal.rb:189:in `dispatch'
+actionpack (5.1.4) lib/action_controller/metal.rb:253:in `dispatch'
+actionpack (5.1.4) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (5.1.4) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+actionpack (5.1.4) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (5.1.4) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.4) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.4) lib/action_dispatch/routing/route_set.rb:834:in `call'
+rack (2.0.3) lib/rack/etag.rb:25:in `call'
+rack (2.0.3) lib/rack/conditional_get.rb:38:in `call'
+rack (2.0.3) lib/rack/head.rb:12:in `call'
+rack (2.0.3) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.3) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.4) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.4) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.4) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.9.1) lib/puma/configuration.rb:224:in `call'
+puma (3.9.1) lib/puma/server.rb:602:in `handle_request'
+puma (3.9.1) lib/puma/server.rb:435:in `process_client'
+puma (3.9.1) lib/puma/server.rb:299:in `block in run'
+puma (3.9.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/gossips/3" for 127.0.0.1 at 2018-01-31 18:34:57 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mGossip Load (0.1ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering gossips/show.html.erb within layouts/application
+  Rendered gossips/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 18ms (Views: 16.4ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/gossips/7" for 127.0.0.1 at 2018-01-31 18:35:03 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mGossip Load (0.1ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering gossips/show.html.erb within layouts/application
+  Rendered gossips/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 18ms (Views: 16.9ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/gossips/1" for 127.0.0.1 at 2018-01-31 18:35:22 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGossip Load (0.1ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering gossips/show.html.erb within layouts/application
+  Rendered gossips/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 19ms (Views: 17.3ms | ActiveRecord: 0.1ms)
+
+
+Started DELETE "/gossips/1" for 127.0.0.1 at 2018-01-31 18:35:24 +0100
+  
+AbstractController::ActionNotFound (The action 'destroy' could not be found for GossipsController):
+  
+actionpack (5.1.4) lib/abstract_controller/base.rb:119:in `process'
+actionview (5.1.4) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.1.4) lib/action_controller/metal.rb:189:in `dispatch'
+actionpack (5.1.4) lib/action_controller/metal.rb:253:in `dispatch'
+actionpack (5.1.4) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (5.1.4) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+actionpack (5.1.4) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (5.1.4) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.4) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.4) lib/action_dispatch/routing/route_set.rb:834:in `call'
+rack (2.0.3) lib/rack/etag.rb:25:in `call'
+rack (2.0.3) lib/rack/conditional_get.rb:38:in `call'
+rack (2.0.3) lib/rack/head.rb:12:in `call'
+rack (2.0.3) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.3) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.4) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.4) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.4) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.9.1) lib/puma/configuration.rb:224:in `call'
+puma (3.9.1) lib/puma/server.rb:602:in `handle_request'
+puma (3.9.1) lib/puma/server.rb:435:in `process_client'
+puma (3.9.1) lib/puma/server.rb:299:in `block in run'
+puma (3.9.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/gossips/1" for 127.0.0.1 at 2018-01-31 18:47:47 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"1"}
+Completed 500 Internal Server Error in 1ms
+
+
+  
+SyntaxError (/home/matthieu/THP/Rails_J3/the_gossip_project/app/models/gossip.rb:3: syntax error, unexpected tSYMBEG, expecting keyword_do or '{' or '('
+	validates :content, presence: true,
+	           ^
+/home/matthieu/THP/Rails_J3/the_gossip_project/app/models/gossip.rb:3: Can't assign to true):
+  
+app/models/gossip.rb:3: syntax error, unexpected tSYMBEG, expecting keyword_do or '{' or '('
+app/models/gossip.rb:3: Can't assign to true
+app/controllers/gossips_controller.rb:20:in `show'
+Started GET "/gossips/1" for 127.0.0.1 at 2018-01-31 18:48:59 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"1"}
+Completed 500 Internal Server Error in 4ms
+
+
+  
+ArgumentError (Unknown validator: 'PrersenceValidator'):
+  
+app/models/gossip.rb:2:in `<class:Gossip>'
+app/models/gossip.rb:1:in `<top (required)>'
+app/controllers/gossips_controller.rb:20:in `show'
+Started GET "/gossips/new" for 127.0.0.1 at 2018-01-31 18:49:35 +0100
+Processing by GossipsController#new as HTML
+  Rendering gossips/new.html.erb within layouts/application
+  Rendered gossips/new.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 18ms (Views: 17.6ms)
+
+
+Started GET "/gossips/new" for 127.0.0.1 at 2018-01-31 18:50:23 +0100
+Processing by GossipsController#new as HTML
+  Rendering gossips/new.html.erb within layouts/application
+  Rendered gossips/new.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 17ms (Views: 16.3ms)
+
+
+Started GET "/gossips/new" for 127.0.0.1 at 2018-01-31 18:51:59 +0100
+Processing by GossipsController#new as HTML
+  Rendering gossips/new.html.erb within layouts/application
+  Rendered gossips/new.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 18ms (Views: 16.7ms)
+
+
+Started GET "/gossips/new" for 127.0.0.1 at 2018-01-31 18:54:02 +0100
+Processing by GossipsController#new as HTML
+  Rendering gossips/new.html.erb within layouts/application
+  Rendered gossips/new.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 17ms (Views: 16.0ms)
+
+
+Started POST "/gossips" for 127.0.0.1 at 2018-01-31 18:54:07 +0100
+Processing by GossipsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"QAA59JWzbY+VahEeC//WWQugiH/90YOqpmJW8al2F9nROcQwMLkbPZl4XdghmNCG8kcKZFr1ECLxSbFG9gdOnQ==", "anonymous_author"=>"vvvvvvvv", "content"=>"tttttttt", "commit"=>"Créer un nouveau gossip"}
+Completed 500 Internal Server Error in 7ms
+
+
+  
+ArgumentError (Unknown validator: 'PrersenceValidator'):
+  
+app/models/gossip.rb:2:in `<class:Gossip>'
+app/models/gossip.rb:1:in `<top (required)>'
+app/controllers/gossips_controller.rb:12:in `create'
+Started POST "/gossips" for 127.0.0.1 at 2018-01-31 18:54:49 +0100
+Processing by GossipsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"QAA59JWzbY+VahEeC//WWQugiH/90YOqpmJW8al2F9nROcQwMLkbPZl4XdghmNCG8kcKZFr1ECLxSbFG9gdOnQ==", "anonymous_author"=>"vvvvvvvv", "content"=>"tttttttt", "commit"=>"Créer un nouveau gossip"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "gossips" ("anonymous_author", "content", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["anonymous_author", "vvvvvvvv"], ["content", "tttttttt"], ["created_at", "2018-01-31 17:54:49.645919"], ["updated_at", "2018-01-31 17:54:49.645919"]]
+  [1m[35m (4.7ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/gossips/25
+Completed 302 Found in 19ms (ActiveRecord: 5.8ms)
+
+
+Started GET "/gossips/25" for 127.0.0.1 at 2018-01-31 18:54:49 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"25"}
+  [1m[36mGossip Load (0.2ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  Rendering gossips/show.html.erb within layouts/application
+  Rendered gossips/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 30ms (Views: 27.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/gossips/new" for 127.0.0.1 at 2018-01-31 18:54:53 +0100
+Processing by GossipsController#new as HTML
+  Rendering gossips/new.html.erb within layouts/application
+  Rendered gossips/new.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 21ms (Views: 19.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/gossips" for 127.0.0.1 at 2018-01-31 18:55:40 +0100
+Processing by GossipsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"aGMeTUJbd1kbkHm1d2BWzg2s0ElYcYp1RgAMoRqOxRv5WuOJ51EB6xeCNXNdB1AR9EtSUv9VGf0RK+sWRf+cXw==", "anonymous_author"=>"", "content"=>"tttt", "commit"=>"Créer un nouveau gossip"}
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+Redirected to http://localhost:3000/gossips
+Completed 302 Found in 8ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/gossips" for 127.0.0.1 at 2018-01-31 18:55:40 +0100
+Processing by GossipsController#index as HTML
+  Rendering gossips/index.html.erb within layouts/application
+  [1m[36mGossip Load (0.4ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips"[0m
+  Rendered gossips/index.html.erb within layouts/application (7.8ms)
+Completed 200 OK in 41ms (Views: 38.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/gossip/new" for 127.0.0.1 at 2018-01-31 18:55:57 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/gossip/new"):
+  
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.9.1) lib/puma/configuration.rb:224:in `call'
+puma (3.9.1) lib/puma/server.rb:602:in `handle_request'
+puma (3.9.1) lib/puma/server.rb:435:in `process_client'
+puma (3.9.1) lib/puma/server.rb:299:in `block in run'
+puma (3.9.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/gossips/new" for 127.0.0.1 at 2018-01-31 18:56:02 +0100
+Processing by GossipsController#new as HTML
+  Rendering gossips/new.html.erb within layouts/application
+  Rendered gossips/new.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 32ms (Views: 31.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/gossips" for 127.0.0.1 at 2018-01-31 18:56:09 +0100
+Processing by GossipsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"jG3WgBoSnF+boOjwFJP8I+TTznlX8AvBd0zxc1N61WkdVCtEvxjq7ZeypDY+9Pr8HTRMYvDUmEkgZxbEDAuMLQ==", "anonymous_author"=>"", "content"=>"mmmmm", "commit"=>"Créer un nouveau gossip"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+Redirected to http://localhost:3000/gossips
+Completed 302 Found in 3ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/gossips" for 127.0.0.1 at 2018-01-31 18:56:09 +0100
+Processing by GossipsController#index as HTML
+  Rendering gossips/index.html.erb within layouts/application
+  [1m[36mGossip Load (0.3ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips"[0m
+  Rendered gossips/index.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 20ms (Views: 18.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/gossips" for 127.0.0.1 at 2018-01-31 18:56:54 +0100
+Processing by GossipsController#index as HTML
+  Rendering gossips/index.html.erb within layouts/application
+  [1m[36mGossip Load (0.3ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips"[0m
+  Rendered gossips/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 22ms (Views: 19.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/gossips/4" for 127.0.0.1 at 2018-01-31 18:57:02 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mGossip Load (0.1ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering gossips/show.html.erb within layouts/application
+  Rendered gossips/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 16ms (Views: 14.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/gossips/4/edit" for 127.0.0.1 at 2018-01-31 18:57:04 +0100
+Processing by GossipsController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mGossip Load (0.5ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering gossips/edit.html.erb within layouts/application
+  Rendered gossips/edit.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 33ms (Views: 27.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-31 18:57:18 +0100
+Processing by GossipsController#index as HTML
+  Rendering gossips/index.html.erb within layouts/application
+  [1m[36mGossip Load (0.2ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips"[0m
+  Rendered gossips/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 19ms (Views: 18.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-31 19:02:06 +0100
+Processing by GossipsController#index as HTML
+  Rendering gossips/index.html.erb within layouts/application
+  [1m[36mGossip Load (0.2ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips"[0m
+  Rendered gossips/index.html.erb within layouts/application (8.8ms)
+Completed 200 OK in 23ms (Views: 20.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-31 19:02:41 +0100
+Processing by GossipsController#new as HTML
+  Rendering gossips/new.html.erb within layouts/application
+  Rendered gossips/new.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 17ms (Views: 16.1ms)
+
+
+Started POST "/gossips" for 127.0.0.1 at 2018-01-31 19:02:56 +0100
+Processing by GossipsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"aDDUAT2S0elyUhaBuJgmTpz8A2ksMFZOPijg7vgTVFD5CSnFmJinW35AWkeS/yCRZRuBcosUxcZpAwdZp2INFA==", "anonymous_author"=>"hhhh", "content"=>"aaaa", "commit"=>"Créer un nouveau gossip"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "gossips" ("anonymous_author", "content", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["anonymous_author", "hhhh"], ["content", "aaaa"], ["created_at", "2018-01-31 18:02:56.455010"], ["updated_at", "2018-01-31 18:02:56.455010"]]
+  [1m[35m (3.4ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/gossips/26
+Completed 302 Found in 19ms (ActiveRecord: 5.5ms)
+
+
+Started GET "/gossips/26" for 127.0.0.1 at 2018-01-31 19:02:56 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"26"}
+  [1m[36mGossip Load (0.2ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 26], ["LIMIT", 1]]
+  Rendering gossips/show.html.erb within layouts/application
+  Rendered gossips/show.html.erb within layouts/application (174.2ms)
+Completed 500 Internal Server Error in 178ms (ActiveRecord: 0.2ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `index_path' for #<#<Class:0x007fb8e014c710>:0x007fb8dc5a46e0>
+Did you mean?  video_path):
+    2: <p><%= @gossip.anonymous_author %></p>
+    3: <p><%= @gossip.content %></p>
+    4: <p>
+    5: <%= link_to 'Index', index_path %>
+    6: </p>
+    7: <p>
+    8: <%= link_to 'Nouveau gossip', '/gossips/new' %>
+  
+app/views/gossips/show.html.erb:5:in `_app_views_gossips_show_html_erb__1851434928482718697_70215973808220'
+Started GET "/gossips/26" for 127.0.0.1 at 2018-01-31 19:04:44 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"26"}
+  [1m[36mGossip Load (0.2ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 26], ["LIMIT", 1]]
+  Rendering gossips/show.html.erb within layouts/application
+  Rendered gossips/show.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 23ms (Views: 20.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/gossips/26" for 127.0.0.1 at 2018-01-31 19:06:58 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"26"}
+  [1m[36mGossip Load (0.2ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 26], ["LIMIT", 1]]
+  Rendering gossips/show.html.erb within layouts/application
+  Rendered gossips/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 21ms (Views: 19.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/gossips/26" for 127.0.0.1 at 2018-01-31 19:07:37 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"26"}
+  [1m[36mGossip Load (0.1ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 26], ["LIMIT", 1]]
+  Rendering gossips/show.html.erb within layouts/application
+  Rendered gossips/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 18ms (Views: 16.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/gossips/26" for 127.0.0.1 at 2018-01-31 19:08:10 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"26"}
+  [1m[36mGossip Load (0.1ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 26], ["LIMIT", 1]]
+  Rendering gossips/show.html.erb within layouts/application
+  Rendered gossips/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 18ms (Views: 16.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/gossips/26" for 127.0.0.1 at 2018-01-31 19:10:07 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"26"}
+  [1m[36mGossip Load (0.1ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 26], ["LIMIT", 1]]
+  Rendering gossips/show.html.erb within layouts/application
+  Rendered gossips/show.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 17ms (Views: 15.2ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/gossips/26" for 127.0.0.1 at 2018-01-31 19:10:32 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"26"}
+  [1m[36mGossip Load (0.1ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 26], ["LIMIT", 1]]
+  Rendering gossips/show.html.erb within layouts/application
+  Rendered gossips/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 16ms (Views: 15.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/gossips/26/edit" for 127.0.0.1 at 2018-01-31 19:10:42 +0100
+Processing by GossipsController#edit as HTML
+  Parameters: {"id"=>"26"}
+  [1m[36mGossip Load (0.1ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 26], ["LIMIT", 1]]
+  Rendering gossips/edit.html.erb within layouts/application
+  Rendered gossips/edit.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 17ms (Views: 15.3ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/gossips/new" for 127.0.0.1 at 2018-01-31 19:10:45 +0100
+Processing by GossipsController#new as HTML
+  Rendering gossips/new.html.erb within layouts/application
+  Rendered gossips/new.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 15ms (Views: 14.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/gossips/new" for 127.0.0.1 at 2018-01-31 19:11:26 +0100
+Processing by GossipsController#new as HTML
+  Rendering gossips/new.html.erb within layouts/application
+  Rendered gossips/new.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 16ms (Views: 15.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/gossips" for 127.0.0.1 at 2018-01-31 19:11:39 +0100
+Processing by GossipsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"31vymm6i09AIZM/F9WhVE2W/F+y8xeJBSiEomc/O0m9OYg9ey6ilYgR2gwPfD1PMnFiV9xvhcckdCs8ukL+LKw==", "anonymous_author"=>"rrrr", "content"=>"wwww", "commit"=>"Créer un nouveau ragot"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "gossips" ("anonymous_author", "content", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["anonymous_author", "rrrr"], ["content", "wwww"], ["created_at", "2018-01-31 18:11:39.100477"], ["updated_at", "2018-01-31 18:11:39.100477"]]
+  [1m[35m (3.6ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/gossips/27
+Completed 302 Found in 9ms (ActiveRecord: 4.1ms)
+
+
+Started GET "/gossips/27" for 127.0.0.1 at 2018-01-31 19:11:39 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"27"}
+  [1m[36mGossip Load (0.4ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 27], ["LIMIT", 1]]
+  Rendering gossips/show.html.erb within layouts/application
+  Rendered gossips/show.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 26ms (Views: 20.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/gossips" for 127.0.0.1 at 2018-01-31 19:11:45 +0100
+Processing by GossipsController#index as HTML
+  Rendering gossips/index.html.erb within layouts/application
+  [1m[36mGossip Load (0.2ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips"[0m
+  Rendered gossips/index.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 18ms (Views: 16.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/gossips" for 127.0.0.1 at 2018-01-31 19:12:24 +0100
+Processing by GossipsController#index as HTML
+  Rendering gossips/index.html.erb within layouts/application
+  [1m[36mGossip Load (0.2ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips"[0m
+  Rendered gossips/index.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 21ms (Views: 19.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/gossips/1" for 127.0.0.1 at 2018-01-31 19:12:29 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGossip Load (0.2ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering gossips/show.html.erb within layouts/application
+  Rendered gossips/show.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 23ms (Views: 19.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/gossips/2" for 127.0.0.1 at 2018-01-31 19:12:39 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mGossip Load (0.1ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering gossips/show.html.erb within layouts/application
+  Rendered gossips/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 16ms (Views: 14.5ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/gossips/2" for 127.0.0.1 at 2018-01-31 19:13:36 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mGossip Load (0.2ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering gossips/show.html.erb within layouts/application
+  Rendered gossips/show.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 17ms (Views: 15.3ms | ActiveRecord: 0.2ms)
+
+
+Started DELETE "/gossips/2" for 127.0.0.1 at 2018-01-31 19:13:41 +0100
+Processing by GossipsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"xJ9yGU2CDBwqdeh4qBwcXEfVSSlWxyJNcP3Edxro07RVpo/d6Ih6riZnpL6CexqDvjLLMvHjscUn1iPARZmK8A==", "id"=>"2"}
+No template found for GossipsController#destroy, rendering head :no_content
+Completed 204 No Content in 18ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/gossips/2" for 127.0.0.1 at 2018-01-31 19:21:57 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mGossip Load (0.1ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering gossips/show.html.erb within layouts/application
+  Rendered gossips/show.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 23ms (Views: 14.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/gossips/new" for 127.0.0.1 at 2018-01-31 19:21:59 +0100
+Processing by GossipsController#new as HTML
+  Rendering gossips/new.html.erb within layouts/application
+  Rendered gossips/new.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 25ms (Views: 23.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/gossips" for 127.0.0.1 at 2018-01-31 19:22:06 +0100
+Processing by GossipsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"X3UOkEnaVvqPJSdYVUAiy3smxSJVPXl31/Po0rzb7H3sj9rQrnmgE950ml1QaMAn8xTtq1Clb6MY/Orh95P1Dg==", "anonymous_author"=>"uuuu", "content"=>"wwww", "commit"=>"Créer un nouveau ragot"}
+Completed 500 Internal Server Error in 115ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (undefined local variable or method `article_params' for #<GossipsController:0x007fb8e4c53420>):
+  
+app/controllers/gossips_controller.rb:12:in `create'
+Started POST "/gossips" for 127.0.0.1 at 2018-01-31 19:23:09 +0100
+Processing by GossipsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"X3UOkEnaVvqPJSdYVUAiy3smxSJVPXl31/Po0rzb7H3sj9rQrnmgE950ml1QaMAn8xTtq1Clb6MY/Orh95P1Dg==", "anonymous_author"=>"uuuu", "content"=>"wwww", "commit"=>"Créer un nouveau ragot"}
+Completed 500 Internal Server Error in 121ms
+
+
+  
+NameError (undefined local variable or method `gossip_params' for #<GossipsController:0x007fb8e47de778>
+Did you mean?  gossip_path):
+  
+app/controllers/gossips_controller.rb:12:in `create'
+Started POST "/gossips" for 127.0.0.1 at 2018-01-31 19:23:51 +0100
+Processing by GossipsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"X3UOkEnaVvqPJSdYVUAiy3smxSJVPXl31/Po0rzb7H3sj9rQrnmgE950ml1QaMAn8xTtq1Clb6MY/Orh95P1Dg==", "anonymous_author"=>"uuuu", "content"=>"wwww", "commit"=>"Créer un nouveau ragot"}
+Completed 500 Internal Server Error in 161ms
+
+
+  
+NameError (undefined local variable or method `gossips_params' for #<GossipsController:0x007fb8ea056428>
+Did you mean?  gossips_path):
+  
+app/controllers/gossips_controller.rb:12:in `create'
+Started POST "/gossips" for 127.0.0.1 at 2018-01-31 19:24:57 +0100
+Processing by GossipsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"X3UOkEnaVvqPJSdYVUAiy3smxSJVPXl31/Po0rzb7H3sj9rQrnmgE950ml1QaMAn8xTtq1Clb6MY/Orh95P1Dg==", "anonymous_author"=>"uuuu", "content"=>"wwww", "commit"=>"Créer un nouveau ragot"}
+Unpermitted parameters: :utf8, :authenticity_token, :commit
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "gossips" ("anonymous_author", "content", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["anonymous_author", "uuuu"], ["content", "wwww"], ["created_at", "2018-01-31 18:24:57.298702"], ["updated_at", "2018-01-31 18:24:57.298702"]]
+  [1m[35m (3.7ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/gossips/28
+Completed 302 Found in 17ms (ActiveRecord: 4.9ms)
+
+
+Started GET "/gossips/28" for 127.0.0.1 at 2018-01-31 19:24:57 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"28"}
+  [1m[36mGossip Load (0.2ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 28], ["LIMIT", 1]]
+  Rendering gossips/show.html.erb within layouts/application
+  Rendered gossips/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 20ms (Views: 17.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/gossips/28/edit" for 127.0.0.1 at 2018-01-31 19:25:08 +0100
+Processing by GossipsController#edit as HTML
+  Parameters: {"id"=>"28"}
+  [1m[36mGossip Load (0.1ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 28], ["LIMIT", 1]]
+  Rendering gossips/edit.html.erb within layouts/application
+  Rendered gossips/edit.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 19ms (Views: 16.2ms | ActiveRecord: 0.1ms)
+
+
+Started PATCH "/gossips/28" for 127.0.0.1 at 2018-01-31 19:25:09 +0100
+Processing by GossipsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"HzA6Wx8+8jCt59lHGKUFw5Gix+4Fe/6YNtW1t+S+M4CdLAVD1vjaueWmtYmidQqg4O/s3lots8KbHr73qqSA5A==", "gossip"=>{"anonymous_author"=>"uuuu", "content"=>"wwww"}, "commit"=>"Update Gossip", "id"=>"28"}
+  [1m[36mGossip Load (0.2ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 28], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/gossips/28
+Completed 302 Found in 4ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/gossips/28" for 127.0.0.1 at 2018-01-31 19:25:09 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"28"}
+  [1m[36mGossip Load (0.1ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 28], ["LIMIT", 1]]
+  Rendering gossips/show.html.erb within layouts/application
+  Rendered gossips/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 17ms (Views: 15.6ms | ActiveRecord: 0.1ms)
+
+
+Started DELETE "/gossips/28" for 127.0.0.1 at 2018-01-31 19:25:11 +0100
+Processing by GossipsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"rWV3tvxMprzZxRmVwdjzn2GPmlf7GPUh3NPEvYD9Wgs8XIpyWUbQDtXXVVPrv/VAmGgYTFw8ZqmL+CMK34wDTw==", "id"=>"28"}
+No template found for GossipsController#destroy, rendering head :no_content
+Completed 204 No Content in 19ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/gossips" for 127.0.0.1 at 2018-01-31 19:25:13 +0100
+Processing by GossipsController#index as HTML
+  Rendering gossips/index.html.erb within layouts/application
+  [1m[36mGossip Load (0.5ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips"[0m
+  Rendered gossips/index.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 31ms (Views: 26.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/gossips/new" for 127.0.0.1 at 2018-01-31 19:25:16 +0100
+Processing by GossipsController#new as HTML
+  Rendering gossips/new.html.erb within layouts/application
+  Rendered gossips/new.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 14ms (Views: 13.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-31 19:25:25 +0100
+Processing by GossipsController#new as HTML
+  Rendering gossips/new.html.erb within layouts/application
+  Rendered gossips/new.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 16ms (Views: 14.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-31 19:29:39 +0100
+Processing by GossipsController#new as HTML
+  Rendering gossips/new.html.erb within layouts/application
+  Rendered gossips/new.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 17ms (Views: 16.5ms)
+
+
+Started POST "/gossips" for 127.0.0.1 at 2018-01-31 19:29:48 +0100
+Processing by GossipsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"X5rp5QygiuFm06Z4OnGwccg7LKkSHx/N67rq1XoHterOoxQhqar8U2rB6r4QFrauMdyusrU7jEW8kQ1iJXbsrg==", "anonymous_author"=>"nnnn", "content"=>"wwwww", "commit"=>"Créer un nouveau ragot"}
+Unpermitted parameters: :utf8, :authenticity_token, :commit
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "gossips" ("anonymous_author", "content", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["anonymous_author", "nnnn"], ["content", "wwwww"], ["created_at", "2018-01-31 18:29:48.153218"], ["updated_at", "2018-01-31 18:29:48.153218"]]
+  [1m[35m (3.5ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/gossips/29
+Completed 302 Found in 19ms (ActiveRecord: 5.0ms)
+
+
+Started GET "/gossips/29" for 127.0.0.1 at 2018-01-31 19:29:48 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"29"}
+  [1m[36mGossip Load (0.2ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 29], ["LIMIT", 1]]
+  Rendering gossips/show.html.erb within layouts/application
+  Rendered gossips/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 16ms (Views: 13.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/gossips" for 127.0.0.1 at 2018-01-31 19:29:51 +0100
+Processing by GossipsController#index as HTML
+  Rendering gossips/index.html.erb within layouts/application
+  [1m[36mGossip Load (0.6ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips"[0m
+  Rendered gossips/index.html.erb within layouts/application (6.4ms)
+Completed 200 OK in 29ms (Views: 26.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/gossips/29" for 127.0.0.1 at 2018-01-31 19:35:18 +0100
+  
+SyntaxError (/home/matthieu/THP/Rails_J3/the_gossip_project/app/controllers/gossips_controller.rb:46: syntax error, unexpected end-of-input, expecting keyword_end):
+  
+app/controllers/gossips_controller.rb:46: syntax error, unexpected end-of-input, expecting keyword_end
+Started GET "/gossips/29" for 127.0.0.1 at 2018-01-31 19:35:37 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"29"}
+  [1m[36mGossip Load (0.2ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 29], ["LIMIT", 1]]
+  Rendering gossips/show.html.erb within layouts/application
+  Rendered gossips/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 26ms (Views: 14.5ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/gossips/new" for 127.0.0.1 at 2018-01-31 19:35:41 +0100
+Processing by GossipsController#new as HTML
+  Rendering gossips/new.html.erb within layouts/application
+  Rendered gossips/new.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 16ms (Views: 14.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/gossips" for 127.0.0.1 at 2018-01-31 19:35:44 +0100
+Processing by GossipsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"KyX0AiEe81dMYeUjazjAN3ReXHVg9I3edZoZ5iYGVhSY3yBCxr0Fvh0wWCZuECLb/Gx0/GVsmwq6lRvVbU5PZw==", "anonymous_author"=>"", "content"=>"aaaa", "commit"=>"Créer un nouveau ragot"}
+Unpermitted parameters: :utf8, :authenticity_token, :commit
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  Rendering gossips/new.html.erb within layouts/application
+  Rendered gossips/new.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 19ms (Views: 16.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/gossips" for 127.0.0.1 at 2018-01-31 19:36:55 +0100
+Processing by GossipsController#index as HTML
+Completed 500 Internal Server Error in 1ms
+
+
+  
+SyntaxError (/home/matthieu/THP/Rails_J3/the_gossip_project/app/models/gossip.rb:2: syntax error, unexpected ',', expecting =>
+...thor, presence: true, :content, presence: true,
+...                               ^
+/home/matthieu/THP/Rails_J3/the_gossip_project/app/models/gossip.rb:2: Can't assign to true):
+  
+app/models/gossip.rb:2: syntax error, unexpected ',', expecting =>
+app/models/gossip.rb:2: Can't assign to true
+app/controllers/gossips_controller.rb:4:in `index'
+Started GET "/gossips" for 127.0.0.1 at 2018-01-31 19:37:29 +0100
+Processing by GossipsController#index as HTML
+Completed 500 Internal Server Error in 1ms
+
+
+  
+SyntaxError (/home/matthieu/THP/Rails_J3/the_gossip_project/app/models/gossip.rb:5: syntax error, unexpected keyword_end):
+  
+app/models/gossip.rb:5: syntax error, unexpected keyword_end
+app/controllers/gossips_controller.rb:4:in `index'
+Started GET "/gossips" for 127.0.0.1 at 2018-01-31 19:37:46 +0100
+Processing by GossipsController#index as HTML
+Completed 500 Internal Server Error in 1ms
+
+
+  
+SyntaxError (/home/matthieu/THP/Rails_J3/the_gossip_project/app/models/gossip.rb:3: syntax error, unexpected tSYMBEG, expecting keyword_do or '{' or '('
+	validates :content, presence: true,
+	           ^
+/home/matthieu/THP/Rails_J3/the_gossip_project/app/models/gossip.rb:3: Can't assign to true):
+  
+app/models/gossip.rb:3: syntax error, unexpected tSYMBEG, expecting keyword_do or '{' or '('
+app/models/gossip.rb:3: Can't assign to true
+app/controllers/gossips_controller.rb:4:in `index'
+Started GET "/gossips" for 127.0.0.1 at 2018-01-31 19:38:00 +0100
+Processing by GossipsController#index as HTML
+Completed 500 Internal Server Error in 1ms
+
+
+  
+SyntaxError (/home/matthieu/THP/Rails_J3/the_gossip_project/app/models/gossip.rb:5: syntax error, unexpected keyword_end):
+  
+app/models/gossip.rb:5: syntax error, unexpected keyword_end
+app/controllers/gossips_controller.rb:4:in `index'
+Started POST "/gossips" for 127.0.0.1 at 2018-01-31 19:38:51 +0100
+Processing by GossipsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"KyX0AiEe81dMYeUjazjAN3ReXHVg9I3edZoZ5iYGVhSY3yBCxr0Fvh0wWCZuECLb/Gx0/GVsmwq6lRvVbU5PZw==", "anonymous_author"=>"", "content"=>"aaaa", "commit"=>"Créer un nouveau ragot"}
+Completed 500 Internal Server Error in 2ms
+
+
+  
+SyntaxError (/home/matthieu/THP/Rails_J3/the_gossip_project/app/models/gossip.rb:3: syntax error, unexpected keyword_end):
+  
+app/models/gossip.rb:3: syntax error, unexpected keyword_end
+app/controllers/gossips_controller.rb:12:in `create'
+Started POST "/gossips" for 127.0.0.1 at 2018-01-31 19:40:22 +0100
+Processing by GossipsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"KyX0AiEe81dMYeUjazjAN3ReXHVg9I3edZoZ5iYGVhSY3yBCxr0Fvh0wWCZuECLb/Gx0/GVsmwq6lRvVbU5PZw==", "anonymous_author"=>"", "content"=>"aaaa", "commit"=>"Créer un nouveau ragot"}
+Unpermitted parameters: :utf8, :authenticity_token, :commit
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  Rendering gossips/new.html.erb within layouts/application
+  Rendered gossips/new.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 28ms (Views: 15.5ms | ActiveRecord: 1.4ms)
+
+
+Started POST "/gossips" for 127.0.0.1 at 2018-01-31 19:41:11 +0100
+Processing by GossipsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zBZZF95BOlcL3qEO664FRB72qpjnZpo6Faf2FmmbvcBdL6TTe0tM5QfM7cjByQOb5xEog0BCCbJCjBGhNurkhA==", "anonymous_author"=>"", "content"=>"", "commit"=>"Créer un nouveau ragot"}
+Unpermitted parameters: :utf8, :authenticity_token, :commit
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  Rendering gossips/new.html.erb within layouts/application
+  Rendered gossips/new.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 25ms (Views: 12.3ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/gossips" for 127.0.0.1 at 2018-01-31 19:41:15 +0100
+Processing by GossipsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"H1rtTUTvFrkjJrwDldcfCSjgBKT0An9ZFX+iGNfWbFOOYxCJ4eVgCy808MW/sBnW0QeGv1Mm7NFCVEWviKc1Fw==", "anonymous_author"=>"aaa", "content"=>"", "commit"=>"Créer un nouveau ragot"}
+Unpermitted parameters: :utf8, :authenticity_token, :commit
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  Rendering gossips/new.html.erb within layouts/application
+  Rendered gossips/new.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 20ms (Views: 17.0ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/gossips" for 127.0.0.1 at 2018-01-31 19:41:17 +0100
+Processing by GossipsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"1D6NkIdT/WYoNbdeumcsXHudc0BGt2P0et9LGmSH8OJFB3BUIlmL1CQn+5iQACqDgnrxW+GT8Hwt9KytO/appg==", "anonymous_author"=>"", "content"=>"ddd", "commit"=>"Créer un nouveau ragot"}
+Unpermitted parameters: :utf8, :authenticity_token, :commit
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  Rendering gossips/new.html.erb within layouts/application
+  Rendered gossips/new.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 17ms (Views: 13.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/gossips" for 127.0.0.1 at 2018-01-31 19:52:14 +0100
+Processing by GossipsController#index as HTML
+  Rendering gossips/index.html.erb within layouts/application
+  [1m[36mGossip Load (0.2ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips"[0m
+  Rendered gossips/index.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 17ms (Views: 15.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-31 19:52:21 +0100
+Processing by GossipsController#new as HTML
+  Rendering gossips/new.html.erb within layouts/application
+  Rendered gossips/new.html.erb within layouts/application (0.6ms)
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/home/matthieu/THP/Rails_J3/the_gossip_project/app/views/gossips/new.html.erb:27: syntax error, unexpected keyword_ensure, expecting keyword_end
+/home/matthieu/THP/Rails_J3/the_gossip_project/app/views/gossips/new.html.erb:29: syntax error, unexpected end-of-input, expecting keyword_end):
+  
+app/views/gossips/new.html.erb:27: syntax error, unexpected keyword_ensure, expecting keyword_end
+app/views/gossips/new.html.erb:29: syntax error, unexpected end-of-input, expecting keyword_end
+Started GET "/" for 127.0.0.1 at 2018-01-31 19:54:02 +0100
+Processing by GossipsController#new as HTML
+  Rendering gossips/new.html.erb within layouts/application
+  Rendered gossips/new.html.erb within layouts/application (1.1ms)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/home/matthieu/THP/Rails_J3/the_gossip_project/app/views/gossips/new.html.erb:30: syntax error, unexpected keyword_ensure, expecting keyword_end
+/home/matthieu/THP/Rails_J3/the_gossip_project/app/views/gossips/new.html.erb:32: syntax error, unexpected end-of-input, expecting keyword_end):
+  
+app/views/gossips/new.html.erb:30: syntax error, unexpected keyword_ensure, expecting keyword_end
+app/views/gossips/new.html.erb:32: syntax error, unexpected end-of-input, expecting keyword_end
+Started GET "/gossips/1" for 127.0.0.1 at 2018-01-31 19:54:05 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGossip Load (0.3ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering gossips/show.html.erb within layouts/application
+  Rendered gossips/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 22ms (Views: 19.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/gossips/new" for 127.0.0.1 at 2018-01-31 19:54:07 +0100
+Processing by GossipsController#new as HTML
+  Rendering gossips/new.html.erb within layouts/application
+  Rendered gossips/new.html.erb within layouts/application (1.0ms)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/home/matthieu/THP/Rails_J3/the_gossip_project/app/views/gossips/new.html.erb:30: syntax error, unexpected keyword_ensure, expecting keyword_end
+/home/matthieu/THP/Rails_J3/the_gossip_project/app/views/gossips/new.html.erb:32: syntax error, unexpected end-of-input, expecting keyword_end):
+  
+app/views/gossips/new.html.erb:30: syntax error, unexpected keyword_ensure, expecting keyword_end
+app/views/gossips/new.html.erb:32: syntax error, unexpected end-of-input, expecting keyword_end
+Started GET "/gossips/new" for 127.0.0.1 at 2018-01-31 19:55:31 +0100
+Processing by GossipsController#new as HTML
+  Rendering gossips/new.html.erb within layouts/application
+  Rendered gossips/new.html.erb within layouts/application (2.4ms)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `errors' for nil:NilClass):
+     5: <%= form_tag (gossips_path) do %>
+     6: 
+     7:  
+     8:   <% if @gossip.errors.any? %>
+     9:     <div id="error_explanation">
+    10:       <h2>
+    11:         <%= pluralize(@gossip.errors.count, "error") %> prohibited
+  
+app/views/gossips/new.html.erb:8:in `block in _app_views_gossips_new_html_erb___3549880012025158304_70216041090340'
+app/views/gossips/new.html.erb:5:in `_app_views_gossips_new_html_erb___3549880012025158304_70216041090340'
+Started GET "/gossips/new" for 127.0.0.1 at 2018-01-31 19:55:35 +0100
+Processing by GossipsController#new as HTML
+  Rendering gossips/new.html.erb within layouts/application
+  Rendered gossips/new.html.erb within layouts/application (2.4ms)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `errors' for nil:NilClass):
+     5: <%= form_tag (gossips_path) do %>
+     6: 
+     7:  
+     8:   <% if @gossip.errors.any? %>
+     9:     <div id="error_explanation">
+    10:       <h2>
+    11:         <%= pluralize(@gossip.errors.count, "error") %> prohibited
+  
+app/views/gossips/new.html.erb:8:in `block in _app_views_gossips_new_html_erb___3549880012025158304_42107020'
+app/views/gossips/new.html.erb:5:in `_app_views_gossips_new_html_erb___3549880012025158304_42107020'
+Started GET "/gossips/new" for 127.0.0.1 at 2018-01-31 19:57:11 +0100
+Processing by GossipsController#new as HTML
+  Rendering gossips/new.html.erb within layouts/application
+  Rendered gossips/new.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 32ms (Views: 23.8ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/gossips" for 127.0.0.1 at 2018-01-31 19:57:17 +0100
+Processing by GossipsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"xKg5XMtqe/50jAkFEopXqytylQyiE4tmyKOMKmswVbRVkcSYbmANTHieRcM47VF00pUXFwU3GO6fiGudNEEM8A==", "anonymous_author"=>"", "content"=>"", "commit"=>"Créer un nouveau ragot"}
+Unpermitted parameters: :utf8, :authenticity_token, :commit
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  Rendering gossips/new.html.erb within layouts/application
+  Rendered gossips/new.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 21ms (Views: 18.3ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/gossips" for 127.0.0.1 at 2018-01-31 20:04:10 +0100
+Processing by GossipsController#index as HTML
+  Rendering gossips/index.html.erb within layouts/application
+  [1m[36mGossip Load (0.2ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips"[0m
+  Rendered gossips/index.html.erb within layouts/application (12.1ms)
+Completed 200 OK in 32ms (Views: 28.6ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/gossips/1" for 127.0.0.1 at 2018-01-31 20:04:19 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGossip Load (0.2ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering gossips/show.html.erb within layouts/application
+  Rendered gossips/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 17ms (Views: 15.0ms | ActiveRecord: 0.2ms)
+
+
+Started DELETE "/gossips/1" for 127.0.0.1 at 2018-01-31 20:04:21 +0100
+Processing by GossipsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"JUyJ5serLVxRsZdNM/Scuq/TLtnImTf+Au0N8mO75pC0dXQiYqFb7l2j24sZk5plVjSswm+9pHZVxupFPMq/1A==", "id"=>"1"}
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (uninitialized constant GossipsController::Article):
+  
+app/controllers/gossips_controller.rb:39:in `destroy'
+Started DELETE "/gossips/1" for 127.0.0.1 at 2018-01-31 20:04:58 +0100
+Processing by GossipsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"JUyJ5serLVxRsZdNM/Scuq/TLtnImTf+Au0N8mO75pC0dXQiYqFb7l2j24sZk5plVjSswm+9pHZVxupFPMq/1A==", "id"=>"1"}
+  [1m[36mGossip Load (0.1ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.8ms)
+
+
+  
+NoMethodError (undefined method `destroy' for nil:NilClass):
+  
+app/controllers/gossips_controller.rb:40:in `destroy'
+Started DELETE "/gossips/1" for 127.0.0.1 at 2018-01-31 20:05:13 +0100
+Processing by GossipsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"JUyJ5serLVxRsZdNM/Scuq/TLtnImTf+Au0N8mO75pC0dXQiYqFb7l2j24sZk5plVjSswm+9pHZVxupFPMq/1A==", "id"=>"1"}
+  [1m[36mGossip Load (0.2ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "gossips" WHERE "gossips"."id" = ?[0m  [["id", 1]]
+  [1m[35m (10.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/gossips
+Completed 302 Found in 24ms (ActiveRecord: 11.5ms)
+
+
+Started GET "/gossips" for 127.0.0.1 at 2018-01-31 20:05:13 +0100
+Processing by GossipsController#index as HTML
+  Rendering gossips/index.html.erb within layouts/application
+  [1m[36mGossip Load (0.3ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips"[0m
+  Rendered gossips/index.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 21ms (Views: 20.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/gossips/2" for 127.0.0.1 at 2018-01-31 20:05:16 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mGossip Load (0.1ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering gossips/show.html.erb within layouts/application
+  Rendered gossips/show.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 18ms (Views: 15.9ms | ActiveRecord: 0.1ms)
+
+
+Started DELETE "/gossips/2" for 127.0.0.1 at 2018-01-31 20:05:17 +0100
+Processing by GossipsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"oTEdIOPssNHw7qC1YsGSbLt0/vjDiLDEKl4cGmiWeuMwCODkRubGY/z87HNIppSzQpN842SsI0x9dfutN+cjpw==", "id"=>"2"}
+  [1m[36mGossip Load (0.1ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[31mDELETE FROM "gossips" WHERE "gossips"."id" = ?[0m  [["id", 2]]
+  [1m[35m (10.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/gossips
+Completed 302 Found in 16ms (ActiveRecord: 10.9ms)
+
+
+Started GET "/gossips" for 127.0.0.1 at 2018-01-31 20:05:17 +0100
+Processing by GossipsController#index as HTML
+  Rendering gossips/index.html.erb within layouts/application
+  [1m[36mGossip Load (0.3ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips"[0m
+  Rendered gossips/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 19ms (Views: 17.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/gossips/3" for 127.0.0.1 at 2018-01-31 20:05:22 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mGossip Load (0.1ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering gossips/show.html.erb within layouts/application
+  Rendered gossips/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 15ms (Views: 13.9ms | ActiveRecord: 0.1ms)
+
+
+Started DELETE "/gossips/3" for 127.0.0.1 at 2018-01-31 20:05:28 +0100
+Processing by GossipsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"lscAF+TZ2JYOFx4Vgh1GlLRxhN0WTHvv2Zt85p0WW6AH/v3TQdOuJAIFUtOoekBLTZYGxrFo6GeOsJtRwmcC5A==", "id"=>"3"}
+  [1m[36mGossip Load (0.2ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "gossips" WHERE "gossips"."id" = ?[0m  [["id", 3]]
+  [1m[35m (29.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/gossips
+Completed 302 Found in 36ms (ActiveRecord: 29.7ms)
+
+
+Started GET "/gossips" for 127.0.0.1 at 2018-01-31 20:05:28 +0100
+Processing by GossipsController#index as HTML
+  Rendering gossips/index.html.erb within layouts/application
+  [1m[36mGossip Load (0.3ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips"[0m
+  Rendered gossips/index.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 22ms (Views: 20.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/gossips/4" for 127.0.0.1 at 2018-01-31 20:05:31 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mGossip Load (0.1ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering gossips/show.html.erb within layouts/application
+  Rendered gossips/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 17ms (Views: 15.3ms | ActiveRecord: 0.1ms)
+
+
+Started DELETE "/gossips/4" for 127.0.0.1 at 2018-01-31 20:05:32 +0100
+Processing by GossipsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"bTs79gA1fuj/KuA1Ia4749UqiCab8tuHnd91WDO/5u38AsYypT8IWvM4rPMLyT08LM0KPTzWSA/K9JLvbM6/qQ==", "id"=>"4"}
+  [1m[36mGossip Load (0.1ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[31mDELETE FROM "gossips" WHERE "gossips"."id" = ?[0m  [["id", 4]]
+  [1m[35m (11.3ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/gossips
+Completed 302 Found in 15ms (ActiveRecord: 12.1ms)
+
+
+Started GET "/gossips" for 127.0.0.1 at 2018-01-31 20:05:32 +0100
+Processing by GossipsController#index as HTML
+  Rendering gossips/index.html.erb within layouts/application
+  [1m[36mGossip Load (0.3ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips"[0m
+  Rendered gossips/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 20ms (Views: 18.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/gossips/5" for 127.0.0.1 at 2018-01-31 20:05:35 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mGossip Load (0.2ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering gossips/show.html.erb within layouts/application
+  Rendered gossips/show.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 20ms (Views: 17.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/gossips" for 127.0.0.1 at 2018-01-31 20:05:36 +0100
+Processing by GossipsController#index as HTML
+  Rendering gossips/index.html.erb within layouts/application
+  [1m[36mGossip Load (0.2ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips"[0m
+  Rendered gossips/index.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 22ms (Views: 20.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/gossips/5" for 127.0.0.1 at 2018-01-31 20:05:38 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mGossip Load (0.5ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering gossips/show.html.erb within layouts/application
+  Rendered gossips/show.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 31ms (Views: 25.4ms | ActiveRecord: 0.5ms)
+
+
+Started DELETE "/gossips/5" for 127.0.0.1 at 2018-01-31 20:05:39 +0100
+Processing by GossipsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"PxwDBITy//BnrAuX0K5aQEgjBZM3lhb+XyuiF2bFKs+uJf7AIfiJQmu+R1H6yVyfscSHiJCyhXYIAEWgObRziw==", "id"=>"5"}
+  [1m[36mGossip Load (0.2ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "gossips" WHERE "gossips"."id" = ?[0m  [["id", 5]]
+  [1m[35m (10.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/gossips
+Completed 302 Found in 18ms (ActiveRecord: 10.6ms)
+
+
+Started GET "/gossips" for 127.0.0.1 at 2018-01-31 20:05:39 +0100
+Processing by GossipsController#index as HTML
+  Rendering gossips/index.html.erb within layouts/application
+  [1m[36mGossip Load (0.2ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips"[0m
+  Rendered gossips/index.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 17ms (Views: 15.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/gossips/6" for 127.0.0.1 at 2018-01-31 20:05:41 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mGossip Load (0.1ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering gossips/show.html.erb within layouts/application
+  Rendered gossips/show.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 16ms (Views: 14.1ms | ActiveRecord: 0.1ms)
+
+
+Started DELETE "/gossips/6" for 127.0.0.1 at 2018-01-31 20:05:42 +0100
+Processing by GossipsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"KdBnULOhchIcs9rqgtkL6Ejg99BwGKigYCVIx5EGAFy46ZqUFqsEoBChliyovg03sQd1y9c8Oyg3Dq9wzndZGA==", "id"=>"6"}
+  [1m[36mGossip Load (0.1ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "gossips" WHERE "gossips"."id" = ?[0m  [["id", 6]]
+  [1m[35m (9.5ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/gossips
+Completed 302 Found in 13ms (ActiveRecord: 9.9ms)
+
+
+Started GET "/gossips" for 127.0.0.1 at 2018-01-31 20:05:42 +0100
+Processing by GossipsController#index as HTML
+  Rendering gossips/index.html.erb within layouts/application
+  [1m[36mGossip Load (0.4ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips"[0m
+  Rendered gossips/index.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 16ms (Views: 14.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/gossips" for 127.0.0.1 at 2018-01-31 20:19:49 +0100
+Processing by GossipsController#index as HTML
+  Rendering gossips/index.html.erb within layouts/application
+  [1m[36mGossip Load (0.2ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips"[0m
+  Rendered gossips/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 20ms (Views: 18.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-31 20:20:01 +0100
+Processing by GossipsController#new as HTML
+  Rendering gossips/new.html.erb within layouts/application
+  Rendered gossips/new.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 29ms (Views: 28.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/gossips" for 127.0.0.1 at 2018-01-31 20:20:08 +0100
+Processing by GossipsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"VQ92a03I0uJlS44lx/09Isey7C9Rmfuoz5QMCzoB3z3ENouv6MKkUGlZwuPtmjv9PlVuNPa9aCCYv+u8ZXCGeQ==", "anonymous_author"=>"rrr", "content"=>"ccc", "commit"=>"Créer un nouveau ragot"}
+Unpermitted parameters: :utf8, :authenticity_token, :commit
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "gossips" ("anonymous_author", "content", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["anonymous_author", "rrr"], ["content", "ccc"], ["created_at", "2018-01-31 19:20:08.420487"], ["updated_at", "2018-01-31 19:20:08.420487"]]
+  [1m[35m (3.4ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/gossips/30
+Completed 302 Found in 9ms (ActiveRecord: 3.9ms)
+
+
+Started GET "/gossips/30" for 127.0.0.1 at 2018-01-31 20:20:08 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"30"}
+  [1m[36mGossip Load (0.1ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 30], ["LIMIT", 1]]
+  Rendering gossips/show.html.erb within layouts/application
+  Rendered gossips/show.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 18ms (Views: 16.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/gossips" for 127.0.0.1 at 2018-01-31 20:20:14 +0100
+Processing by GossipsController#index as HTML
+  Rendering gossips/index.html.erb within layouts/application
+  [1m[36mGossip Load (0.2ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips"[0m
+  Rendered gossips/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 20ms (Views: 18.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/gossips" for 127.0.0.1 at 2018-01-31 20:55:45 +0100
+Processing by GossipsController#index as HTML
+  Rendering gossips/index.html.erb within layouts/application
+  [1m[36mGossip Load (0.2ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips"[0m
+  Rendered gossips/index.html.erb within layouts/application (11.4ms)
+Completed 200 OK in 29ms (Views: 26.5ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/gossips" for 127.0.0.1 at 2018-01-31 20:58:17 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by GossipsController#index as HTML
+  Rendering gossips/index.html.erb within layouts/application
+  [1m[36mGossip Load (0.2ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips"[0m
+  Rendered gossips/index.html.erb within layouts/application (9.2ms)
+Completed 200 OK in 195ms (Views: 184.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/gossips/9" for 127.0.0.1 at 2018-01-31 20:58:19 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mGossip Load (0.2ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  Rendering gossips/show.html.erb within layouts/application
+  Rendered gossips/show.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 19ms (Views: 14.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/gossips/new" for 127.0.0.1 at 2018-01-31 20:58:22 +0100
+Processing by GossipsController#new as HTML
+  Rendering gossips/new.html.erb within layouts/application
+  Rendered gossips/new.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 16ms (Views: 14.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-31 20:58:28 +0100
+Processing by GossipsController#new as HTML
+  Rendering gossips/new.html.erb within layouts/application
+  Rendered gossips/new.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 15ms (Views: 14.4ms | ActiveRecord: 0.0ms)
+
+
