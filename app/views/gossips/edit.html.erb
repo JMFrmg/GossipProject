@@ -4,20 +4,22 @@
 <%= form_with(model: @gossip, local: true) do |form| %>
 
  <p>
-   <%= form.label :anonymous_author %><br>
+   <%= form.label :anonymous_author %><br />
    <%= form.text_field :anonymous_author %>
  </p>
 
  <p>
-   <%= form.label :content %><br>
+   <%= form.label :content %><br />
    <%= form.text_area :content %>
  </p>
 
  <p>
    <%= form.submit %>
-   <%= link_to ':warning:Clique pour détruire:warning:', @gossip, method: :delete %>
+</p>
+  <p>
+   <%= link_to 'Supprimer le ragot', @gossip, method: :delete %>
  </p>
- <p><%= link_to 'Case départ', new_gossip_path %></p>
+ <p><%= link_to 'Créer un nouveau ragot', new_gossip_path %></p>
  
 
 <% end %>
