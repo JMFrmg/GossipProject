@@ -3,13 +3,13 @@
 <p>Contenu du ragot : <%= @gossip.content %></p>
 <p>
 <br />
-<%= link_to 'Créer un nouveau ragot', '/gossips/new' %>
-</p>
-<p>
 <%= link_to 'Modifier le ragot', edit_gossip_path(@gossip) %>
 </p>
 <p>
 <%= link_to 'Supprimer le ragot', @gossip, method: :delete %>
+</p>
+<p>
+<%= link_to 'Créer un nouveau ragot', '/gossips/new' %>
 </p>
 <p>
 <%= link_to 'Liste de tous les ragots', gossips_path %>

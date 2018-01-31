@@ -1,7 +1,7 @@
 
 
 <h1>Créer un nouveau ragot</h1>
-
+<p> </p>
 <%= form_tag (gossips_path) do %>
 
  
@@ -25,3 +25,8 @@
   <%= text_field_tag 'content' %>
   <%= submit_tag 'Créer un nouveau ragot' %>
 <% end %>
+
+<p>
+<br />
+<%= link_to 'Liste de tous les ragots', gossips_path %>
+</p>

@@ -1,41 +1,18 @@
-# Ruby on Rails Tutorial sample application
+# Bonjour! 
 
-This is the sample application for
-[*Ruby on Rails Tutorial:
-Learn Web Development with Rails*](http://www.railstutorial.org/)
-by [Michael Hartl](http://www.michaelhartl.com/).
+## Bienvenue sur mon script GossipProject
 
-## License
+Sa fonction est d'enregistrer et de gérer des ragots dans une base de données.
 
-All source code in the [Ruby on Rails Tutorial](http://railstutorial.org/)
-is available jointly under the MIT License and the Beerware License. See
-[LICENSE.md](LICENSE.md) for details.
+L'utilisateur est immédiatement orienté vers la page d'entrée d'un nouveau ragot. Il dispose de la possibilité d'accéder à la liste complète des ragots. Si il choisit d'en créer un nouveau, il ne doit pas laisser l'une des deux cases vides avant de tenter de générer le ragot. Dans le cas contraire, l'entrée sera refusée, un message d'erreur sera afficheré et la base de données ne sera pas modifiée.
 
-## Getting started
+Une fois un ragot entré, l'utilisateur est automatiquement dirigé vers la page de vue du ragot. Il a alors la possibilité de modifier son ragot, de le supprimer, de créer un nouveau ragot ou d'afficher la liste de tous les ragots présents dans la base de données.
 
-To get started with the app, clone the repo and then install the needed gems:
+* La fonction __modifier__ permet de changer les données du ragot affiché.
+* La fonction __supprimer__ efface le ragot de la base de données.
+* Le lien __créer un nouveau ragot__ renvoie vers la page de création d'un nouveau ragot.
+* Le lien __liste des ragots__ renvoie l'utilisateur vers la page 'index' qui affiche une liste de tous les ragots stockés dans la base de données.
 
-```
-$ bundle install --without production
-```
+La page 'Liste des ragots' affiche l'ensemble des ragots entrés dans la base de données. L'onglet à droite de chaque ragot permet d'accéder aux détails de celui-ci. Il donnera accès aux quatre fonctions précedemment listées.
 
-Next, migrate the database:
-
-```
-$ rails db:migrate
-```
-
-Finally, run the test suite to verify that everything is working correctly:
-
-```
-$ rails test
-```
-
-If the test suite passes, you'll be ready to run the app in a local server:
-
-```
-$ rails server
-```
-
-For more information, see the
-[*Ruby on Rails Tutorial* book](http://www.railstutorial.org/book).
+Bonne lecture!
